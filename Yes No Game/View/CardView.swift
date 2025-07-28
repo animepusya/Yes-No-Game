@@ -13,21 +13,59 @@ struct CardView: View {
     var body: some View {
         VStack {
             if let card = viewModel.currentCard {
-                Text(card.title)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
+                
+                ZStack {
+                    Image(card.imageName)
+                        .resizable()
+                        .scaledToFill()
+                        .edgesIgnoringSafeArea(.all) // чтобы заняло весь экран
+                        .overlay(Color.black.opacity(0.4)) // затемнение для читаемости текста
                     
-                Image(card.imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                
-                Text(card.description)
-                    .padding()
-                
-                Button("Подсказка") { viewModel.showHint = true }
-                Button("Показать ответ") { viewModel.showAnswer = true }
-                Button("Следующая карточка") { viewModel.nextCard() }
+
+                        VStack(alignment: .leading,spacing: 20) {
+                            
+                            Text(card.title)
+                                .font(.largeTitle)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.leading)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color.black.opacity(0.5))
+                                        .shadow(radius: 5)
+                                )
+                                .padding(.horizontal)
+
+                            Text(card.description)
+                                .font(.body)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.leading)
+                                .padding()
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color.black.opacity(0.5))
+                                        .shadow(radius: 5)
+                                )
+                                .padding(.horizontal)
+                            
+                            Spacer()
+                            
+                            ButtonView(
+                                title: "Подсказка",
+                                action: { viewModel.showHint = true },
+                                backgroundColor: .blue
+                            )
+
+                            ButtonView(
+                                title: "Полная история",
+                                action: { viewModel.showAnswer = true },
+                                backgroundColor: .green
+                            )
+                        }
+                        .padding(50)
+                    
+                }
             }
         }
         // .sheet(isPresented: $viewModel.showHint) {
