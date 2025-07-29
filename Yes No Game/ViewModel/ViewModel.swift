@@ -16,10 +16,18 @@ class CardViewModel: ObservableObject {
     init(category: Category?) {
         loadCards(for: category)
     }
+    
+    /* init(singleCard: Card) {
+        self.cards = [singleCard]
+        self.currentCard = singleCard
+    }
+     */
 
     func loadCards(for category: Category?) {
-        cards = CardLoader.load()
-            .filter { category == nil || $0.category == category!.rawValue }
+        cards = CardLoader.load().filter {
+            guard let category = category else { return true }
+            return $0.category == category.rawValue
+        }
         currentCard = cards.randomElement()
     }
 

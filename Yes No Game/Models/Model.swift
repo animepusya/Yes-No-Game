@@ -29,4 +29,15 @@ enum Category: String, CaseIterable {
     case cartoons = "Cartoons"
     case anime = "Anime"
     case ordinary = "Ordinary"
+
+    var title: String {
+        switch self {
+        case .military: return "Военные"
+        case .horror: return "Ужасы"
+        case .films: return "Фильмы"
+        case .cartoons: return "Мультики"
+        case .anime: return "Аниме"
+        case .ordinary: return "Обычные"
+        }
+    }
 }
