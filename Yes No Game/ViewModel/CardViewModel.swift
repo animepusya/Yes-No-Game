@@ -17,11 +17,11 @@ class CardViewModel: ObservableObject {
         loadCards(for: category)
     }
     
-    /* init(singleCard: Card) {
+    init(singleCard: Card) {
         self.cards = [singleCard]
         self.currentCard = singleCard
     }
-     */
+    
 
     func loadCards(for category: Category?) {
         cards = CardLoader.load().filter {
