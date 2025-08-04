@@ -9,13 +9,16 @@ import SwiftUI
 
 struct CategoryScrollView: View {
     let category: Category
-    @StateObject private var viewModel: CardViewModel
+    let cards: [Card]
     var onCardSelected: (Card) -> Void
 
-    init(category: Category, onCardSelected: @escaping (Card) -> Void) {
+    @StateObject private var viewModel: CardViewModel
+
+    init(category: Category, cards: [Card], onCardSelected: @escaping (Card) -> Void) {
         self.category = category
+        self.cards = cards
         self.onCardSelected = onCardSelected
-        _viewModel = StateObject(wrappedValue: CardViewModel(category: category))
+        _viewModel = StateObject(wrappedValue: CardViewModel(cards: cards))
     }
 
     var body: some View {
@@ -40,7 +43,10 @@ struct CategoryScrollView: View {
     }
 }
 
+
 #Preview {
-    CategoryScrollView(category: .military, onCardSelected: { _ in })
+    let sampleCards = CardLoader.load().filter { $0.category == Category.military.rawValue }
+    CategoryScrollView(category: .military, cards: sampleCards, onCardSelected: { _ in })
 }
+
 

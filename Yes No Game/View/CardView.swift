@@ -140,5 +140,8 @@ struct CardView: View {
 }
 
 #Preview {
-    CardView(viewModel: CardViewModel(category: .military))
+    let allCards = CardLoader.load()
+    let militaryCards = allCards.filter { $0.category == Category.military.rawValue }
+    CardView(viewModel: CardViewModel(cards: militaryCards))
 }
+

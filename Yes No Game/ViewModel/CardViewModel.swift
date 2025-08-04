@@ -8,34 +8,27 @@
 import Foundation
 
 class CardViewModel: ObservableObject {
-    @Published var cards: [Card] = []
+    @Published var cards: [Card]
     @Published var currentCard: Card?
     @Published var showHint = false
     @Published var showAnswer = false
     let isRandomMode: Bool
-    
-    init(category: Category?) {
-        self.isRandomMode = false
-        loadCards(for: category)
+
+    init(cards: [Card], isRandomMode: Bool = false) {
+        self.cards = cards
+        self.currentCard = cards.randomElement()
+        self.isRandomMode = isRandomMode
     }
-    
-    init(singleCard: Card, isRandomMode: Bool = false) {
-        self.cards = CardLoader.load()
+
+    init(singleCard: Card, allCards: [Card], isRandomMode: Bool = false) {
+        self.cards = allCards
         self.currentCard = singleCard
         self.isRandomMode = isRandomMode
     }
-    
-    func loadCards(for category: Category?) {
-        cards = CardLoader.load().filter {
-            guard let category = category else { return true }
-            return $0.category == category.rawValue
-        }
-        currentCard = cards.randomElement()
-    }
-    
+
     func nextCard() {
         guard !cards.isEmpty else { return }
-        
+
         var next: Card?
         repeat {
             next = cards.randomElement()

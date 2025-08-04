@@ -16,11 +16,12 @@ struct MainView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         ForEach(viewModel.categoriesWithCards, id: \.self) { category in
-                            CategoryScrollView(category: category) { card in
+                            CategoryScrollView(category: category, cards: viewModel.cards(for: category)) { card in
                                 viewModel.selectSpecificCard(card)
                             }
                         }
                     }
+
                     .padding(.vertical)
                     .padding(.bottom, 100)
                 }
@@ -37,7 +38,7 @@ struct MainView: View {
                 )
             ) {
                 if let card = viewModel.selectedCard {
-                    CardView(viewModel: CardViewModel(singleCard: card, isRandomMode: viewModel.isRandomMode))
+                    CardView(viewModel: CardViewModel(singleCard: card, allCards: viewModel.allCards, isRandomMode: viewModel.isRandomMode))
                 }
             }
         }
