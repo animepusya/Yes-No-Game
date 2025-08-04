@@ -10,12 +10,60 @@ import SwiftUI
 struct CardView: View {
     @ObservedObject var viewModel: CardViewModel
     @State private var isAnswerExpanded = false
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
             if let card = viewModel.currentCard {
                 
                 VStack(alignment: .leading,spacing: 20) {
+                    
+                    HStack {
+                        Button(action: {
+                            dismiss()
+                        }) {
+                            HStack(spacing: 6) {
+                                Image(systemName: "chevron.left")
+                                Text("Вернуться")
+                            }
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding(10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(Color.blue.opacity(0.5))
+                                    .shadow(radius: 5)
+                            )
+                            .cornerRadius(16)
+                            .shadow(color: .blue.opacity(0.4), radius: 10, x: 0, y: 5)
+                        }
+                        
+                        Spacer()
+                        
+                        if viewModel.isRandomMode {
+                            Button(action: {
+                                withAnimation {
+                                    viewModel.nextCard()
+                                }
+                            }) {
+                                HStack(spacing: 6) {
+                                    Text("Следующая карточка")
+                                    Image(systemName: "arrow.right")
+                                }
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .fill(Color.green.opacity(0.5))
+                                        .shadow(radius: 5)
+                                )
+                                .cornerRadius(16)
+                                .shadow(color: .green.opacity(0.4), radius: 10, x: 0, y: 5)
+                            }
+                        }
+                    }
+                    .padding([.top, .horizontal])
                     
                     Text(card.title)
                         .font(.largeTitle)
@@ -70,7 +118,7 @@ struct CardView: View {
                         isDisabled: false
                     )
                     
-                    ExpandableButton(
+                    ExpandableButtonView(
                         title: "Полная история",
                         explanation: card.explanation,
                         backgroundColor: .blue,
@@ -87,6 +135,7 @@ struct CardView: View {
                 
             }
         }
+        .navigationBarHidden(true)
     }
 }
 

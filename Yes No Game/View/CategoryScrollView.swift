@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CategoryScrollView.swift
 //  Yes No Game
 //
 //  Created by Руслан Меланин on 26.07.2025.

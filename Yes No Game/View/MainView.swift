@@ -8,28 +8,43 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var selectedCard: Card? = nil
     @StateObject private var viewModel = MainViewModel()
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(viewModel.categoriesWithCards, id: \.self) { category in
-                        CategoryScrollView(category: category) { card in
-                            selectedCard = card
+            ZStack(alignment: .bottom) {
+                ScrollView {
+                    VStack(spacing: 20) {
+                        ForEach(viewModel.categoriesWithCards, id: \.self) { category in
+                            CategoryScrollView(category: category) { card in
+                                viewModel.selectSpecificCard(card)
+                            }
                         }
                     }
+                    .padding(.vertical)
+                    .padding(.bottom, 100)
                 }
-                .padding(.vertical)
+
+                ButtonView(title: "Случайная карточка") {
+                    viewModel.selectRandomCard()
+                }
             }
             .navigationTitle("Категории")
-            .navigationDestination(item: $selectedCard) { card in
-                CardView(viewModel: CardViewModel(singleCard: card))
+            .navigationDestination(
+                isPresented: Binding<Bool>(
+                    get: { viewModel.selectedCard != nil },
+                    set: { if !$0 { viewModel.selectedCard = nil } }
+                )
+            ) {
+                if let card = viewModel.selectedCard {
+                    CardView(viewModel: CardViewModel(singleCard: card, isRandomMode: viewModel.isRandomMode))
+                }
             }
         }
     }
 }
+
+
 
 #Preview {
     MainView()

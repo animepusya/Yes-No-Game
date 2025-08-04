@@ -12,17 +12,19 @@ class CardViewModel: ObservableObject {
     @Published var currentCard: Card?
     @Published var showHint = false
     @Published var showAnswer = false
-
+    let isRandomMode: Bool
+    
     init(category: Category?) {
+        self.isRandomMode = false
         loadCards(for: category)
     }
     
-    init(singleCard: Card) {
-        self.cards = [singleCard]
+    init(singleCard: Card, isRandomMode: Bool = false) {
+        self.cards = CardLoader.load()
         self.currentCard = singleCard
+        self.isRandomMode = isRandomMode
     }
     
-
     func loadCards(for category: Category?) {
         cards = CardLoader.load().filter {
             guard let category = category else { return true }
@@ -30,9 +32,16 @@ class CardViewModel: ObservableObject {
         }
         currentCard = cards.randomElement()
     }
-
+    
     func nextCard() {
-        currentCard = cards.randomElement()
+        guard !cards.isEmpty else { return }
+        
+        var next: Card?
+        repeat {
+            next = cards.randomElement()
+        } while next?.id == currentCard?.id && cards.count > 1
+
+        currentCard = next
         showHint = false
         showAnswer = false
     }

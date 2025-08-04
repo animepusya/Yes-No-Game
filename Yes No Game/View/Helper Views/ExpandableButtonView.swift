@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ExpandableButton: View {
+struct ExpandableButtonView: View {
     let title: String
     let explanation: String
     let backgroundColor: Color
@@ -56,7 +56,7 @@ struct ExpandableButtonPreview: View {
     @State private var isExpanded = false
 
     var body: some View {
-        ExpandableButton(
+        ExpandableButtonView(
             title: "Meme",
             explanation: "Text tipa explanation i ewe bolwe texta dl9 primera choto ya ne ponyal pochemu tut vse tak krasivo a pri ispolzovanii kakoy to trash proishodit i ne tak kruta srazu vyglyadit a net vse taki tut toje trash mne nujen .alignment and .padding",
             backgroundColor: .blue,
