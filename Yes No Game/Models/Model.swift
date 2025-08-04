@@ -29,7 +29,7 @@ enum Category: String, CaseIterable {
     case cartoons = "Cartoons"
     case anime = "Anime"
     case ordinary = "Ordinary"
-
+    
     var title: String {
         switch self {
         case .military: return "Военные"

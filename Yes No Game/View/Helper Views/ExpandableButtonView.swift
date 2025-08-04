@@ -12,7 +12,7 @@ struct ExpandableButtonView: View {
     let explanation: String
     let backgroundColor: Color
     @Binding var isExpanded: Bool
-
+    
     var body: some View {
         VStack(spacing: 0) {
             Button(action: {
@@ -25,7 +25,7 @@ struct ExpandableButtonView: View {
                         .font(.title2)
                         .fontWeight(.bold)
                         .foregroundColor(.white)
-
+                    
                     if isExpanded {
                         Text(explanation)
                             .font(.body)

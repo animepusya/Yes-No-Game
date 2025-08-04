@@ -10,17 +10,17 @@ import Foundation
 struct CardLoader {
     
     private static var loadCallCount = 0
-
+    
     static func load() -> [Card] {
         
         loadCallCount += 1
-            print("🧾 CardLoader.load() вызван \(loadCallCount) раз")
+        print("🧾 CardLoader.load() вызван \(loadCallCount) раз")
         
         guard let url = Bundle.main.url(forResource: "cards", withExtension: "json") else {
             print("❌ Не найден путь к cards.json")
             return []
         }
-
+        
         do {
             let data = try Data(contentsOf: url)
             let cards = try JSONDecoder().decode([Card].self, from: data)

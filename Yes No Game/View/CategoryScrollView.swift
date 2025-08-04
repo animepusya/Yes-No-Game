@@ -11,23 +11,23 @@ struct CategoryScrollView: View {
     let category: Category
     let cards: [Card]
     var onCardSelected: (Card) -> Void
-
+    
     @StateObject private var viewModel: CardViewModel
-
+    
     init(category: Category, cards: [Card], onCardSelected: @escaping (Card) -> Void) {
         self.category = category
         self.cards = cards
         self.onCardSelected = onCardSelected
         _viewModel = StateObject(wrappedValue: CardViewModel(cards: cards))
     }
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             Text(category.title)
                 .font(.title2)
                 .fontWeight(.bold)
                 .padding(.horizontal)
-
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
                     ForEach(viewModel.cards) { card in

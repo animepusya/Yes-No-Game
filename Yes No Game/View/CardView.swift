@@ -104,7 +104,7 @@ struct CardView: View {
                             .padding(.horizontal)
                             .transition(.opacity.combined(with: .move(edge: .leading)))
                     }
-
+                    
                     Spacer()
                     
                     ButtonView(

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IconCardView: View {
     let card: Card
-
+    
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             Image(card.imageName)
@@ -22,14 +22,14 @@ struct IconCardView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .stroke(Color.white.opacity(0.3), lineWidth: 1)
                 )
-
+            
             LinearGradient(
                 gradient: Gradient(colors: [.clear, .black.opacity(0.7)]),
                 startPoint: .center,
                 endPoint: .bottom
             )
             .cornerRadius(16)
-
+            
             Text(card.title)
                 .font(.headline)
                 .foregroundColor(.white)

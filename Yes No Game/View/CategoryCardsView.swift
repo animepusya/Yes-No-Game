@@ -6,9 +6,9 @@
 //
 
 import SwiftUI
-/*
+
 struct CategoryCardsView: View {
-    let category: CardCategory
+    let category: Category
     let cards: [Card]
     
     let columns = [
@@ -20,20 +20,23 @@ struct CategoryCardsView: View {
         ScrollView {
             LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(cards) { card in
-                    NavigationLink(destination: CardView(viewModel: CardViewModel(card: card))) {
+                    NavigationLink(destination: CardView(viewModel: CardViewModel(singleCard: card, allCards: cards))) {
                         IconCardView(card: card)
                     }
                 }
             }
             .padding()
         }
-        .navigationTitle(category.displayName)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 
 #Preview {
-    CategoryCardsView()
+    CategoryCardsView(category: .military, cards: [Card(category: "Military",
+                                                        title: "Салют",
+                                                        description: "Солдаты стояли на крыше и стреляли в небо. Это спасло город.",
+                                                        hint: "Они стреляли не по врагу.",
+                                                        explanation: "Солдаты запускали сигнальные ракеты, чтобы показать сбитому пилоту, где находится база. Пилот вернулся, сообщил координаты врага — и это спасло город.",
+                                                        imageName: "militarySalute")])
 }
- */

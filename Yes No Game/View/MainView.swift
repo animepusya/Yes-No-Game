@@ -9,23 +9,28 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewModel = MainViewModel()
-
+    
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
                 ScrollView {
                     VStack(spacing: 20) {
                         ForEach(viewModel.categoriesWithCards, id: \.self) { category in
-                            CategoryScrollView(category: category, cards: viewModel.cards(for: category)) { card in
-                                viewModel.selectSpecificCard(card)
+                            NavigationLink {
+                                CategoryCardsView(category: category, cards: viewModel.cards(for: category))
+                            } label: {
+                                CategoryScrollView(category: category, cards: viewModel.cards(for: category)) { card in
+                                    viewModel.selectSpecificCard(card)
+                                }
                             }
+                            .buttonStyle(PlainButtonStyle())
                         }
                     }
-
+                    
                     .padding(.vertical)
                     .padding(.bottom, 100)
                 }
-
+                
                 ButtonView(title: "Случайная карточка") {
                     viewModel.selectRandomCard()
                 }
