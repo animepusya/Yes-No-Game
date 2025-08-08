@@ -11,14 +11,18 @@ struct AppRootView: View {
     @State private var showLaunchScreen = true
 
     var body: some View {
-        ZStack {
-            if showLaunchScreen {
-                LaunchScreenView {
-                    showLaunchScreen = false
+        MainView()
+            .overlay {
+                if showLaunchScreen {
+                    LaunchScreenView {
+                        showLaunchScreen = false
+                    }
+                    .transition(.identity)
+                    .zIndex(1)
                 }
-            } else {
-                MainView()
             }
-        }
     }
 }
+
+
+

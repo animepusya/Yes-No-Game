@@ -18,14 +18,14 @@ struct LaunchScreenView: View {
             .opacity(opacity)
             .scaleEffect(scale)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                    withAnimation(.smooth(duration: 0.3)) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    withAnimation(.easeInOut(duration: 0.4)) {
                         opacity = 0
-                        scale = 3
+                        scale = 1.4
                     }
                 }
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.12) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
                     onFinished()
                 }
             }

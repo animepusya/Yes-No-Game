@@ -10,6 +10,7 @@ import SwiftUI
 struct CardView: View {
     @ObservedObject var viewModel: CardViewModel
     @State private var isAnswerExpanded = false
+    @State private var isButtonDisabled = false
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -42,8 +43,15 @@ struct CardView: View {
                         
                         if viewModel.isRandomMode {
                             Button(action: {
+                                guard !isButtonDisabled else { return }
+                                
+                                isButtonDisabled = true
                                 withAnimation {
                                     viewModel.nextCard()
+                                }
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    isButtonDisabled = false
                                 }
                             }) {
                                 HStack(spacing: 6) {
@@ -61,6 +69,7 @@ struct CardView: View {
                                 .cornerRadius(16)
                                 .shadow(color: .green.opacity(0.4), radius: 10, x: 0, y: 5)
                             }
+                            .disabled(isButtonDisabled)
                         }
                     }
                     .padding([.top, .horizontal])
