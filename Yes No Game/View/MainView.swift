@@ -17,7 +17,13 @@ struct MainView: View {
                     VStack(spacing: 20) {
                         ForEach(viewModel.categoriesWithCards, id: \.self) { category in
                             NavigationLink {
-                                CategoryCardsView(category: category, cards: viewModel.cards(for: category))
+                                CategoryCardsView(
+                                    category: category,
+                                    cards: viewModel.cards(for: category),
+                                    onCardSelected: { card in
+                                        viewModel.selectSpecificCard(card)
+                                    }
+                                )
                             } label: {
                                 CategoryScrollView(category: category, cards: viewModel.cards(for: category)) { card in
                                     viewModel.selectSpecificCard(card)
@@ -28,7 +34,6 @@ struct MainView: View {
                     }
                     
                     .padding(.vertical)
-                    .padding(.bottom, 100)
                 }
                 
                 ButtonView(title: "Случайная карточка") {
@@ -45,7 +50,15 @@ struct MainView: View {
                 if let card = viewModel.selectedCard {
                     CardView(viewModel: CardViewModel(singleCard: card, allCards: viewModel.allCards, isRandomMode: viewModel.isRandomMode))
                 }
+                
             }
+            .background(
+                Image("mainmenu")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+            )
+            .toolbarBackground(.hidden, for: .navigationBar)
         }
     }
 }

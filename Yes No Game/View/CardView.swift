@@ -48,7 +48,7 @@ struct CardView: View {
                             }) {
                                 HStack(spacing: 6) {
                                     Text("Следующая карточка")
-                                    Image(systemName: "arrow.right")
+                                    Image(systemName: "chevron.right")
                                 }
                                 .font(.headline)
                                 .foregroundColor(.white)

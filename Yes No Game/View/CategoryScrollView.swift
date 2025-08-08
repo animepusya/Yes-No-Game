@@ -22,7 +22,7 @@ struct CategoryScrollView: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 0) {
             Text(category.title)
                 .font(.title2)
                 .fontWeight(.bold)
