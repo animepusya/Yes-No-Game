@@ -32,13 +32,16 @@ struct MainView: View {
                             .buttonStyle(PlainButtonStyle())
                         }
                     }
-                    
                     .padding(.vertical)
                 }
                 
-                ButtonView(title: "Случайная карточка") {
-                    viewModel.selectRandomCard()
-                }
+                ButtonView(
+                    title: "Случайная карточка",
+                    action: {
+                        viewModel.selectRandomCard()
+                    },
+                    backgroundColor: .teal
+                )
             }
             .navigationTitle("Категории")
             .navigationDestination(

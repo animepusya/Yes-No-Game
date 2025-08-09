@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonView: View {
     let title: String
     let action: () -> Void
-    var backgroundColor: Color = .blue
+    var backgroundColor: Color = .teal
     var isDisabled: Bool = false
     
     

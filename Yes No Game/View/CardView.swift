@@ -63,11 +63,11 @@ struct CardView: View {
                                 .padding(10)
                                 .background(
                                     RoundedRectangle(cornerRadius: 16)
-                                        .fill(Color.green.opacity(0.5))
+                                        .fill(Color(red: 235/255, green: 158/255, blue: 83/255).opacity(0.5))
                                         .shadow(radius: 5)
                                 )
                                 .cornerRadius(16)
-                                .shadow(color: .green.opacity(0.4), radius: 10, x: 0, y: 5)
+                                .shadow(color: .orange.opacity(0.4), radius: 10, x: 0, y: 5)
                             }
                             .disabled(isButtonDisabled)
                         }
@@ -123,14 +123,14 @@ struct CardView: View {
                                 viewModel.showHint.toggle()
                             }
                         },
-                        backgroundColor: .blue,
+                        backgroundColor: Color(red: 235/255, green: 158/255, blue: 83/255),
                         isDisabled: false
                     )
                     
                     ExpandableButtonView(
                         title: "Полная история",
                         explanation: card.explanation,
-                        backgroundColor: .blue,
+                        backgroundColor: .teal,
                         isExpanded: $isAnswerExpanded)
                 }
                 .background(
