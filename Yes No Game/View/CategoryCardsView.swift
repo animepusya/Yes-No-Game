@@ -12,7 +12,6 @@ struct CategoryCardsView: View {
 
     let category: Category
     let cards: [Card]
-    var onCardSelected: (Card) -> Void
 
     let columns = [
         GridItem(.flexible(), spacing: 16),
@@ -48,10 +47,16 @@ struct CategoryCardsView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(cards) { card in
-                        IconCardView(card: card)
-                            .onTapGesture {
-                                onCardSelected(card)
-                            }
+                        NavigationLink {
+                            CardView(
+                                viewModel: CardViewModel(
+                                    singleCard: card,
+                                    allCards: cards
+                                )
+                            )
+                        } label: {
+                            IconCardView(card: card)
+                        }
                     }
                 }
                 .padding()
@@ -70,7 +75,8 @@ struct CategoryCardsView: View {
 
 
 
+
 #Preview {
     let sampleCards = CardLoader.load().filter { $0.category == Category.military.rawValue }
-    CategoryScrollView(category: .military, cards: sampleCards, onCardSelected: { _ in })
+    CategoryScrollView(category: .military, cards: sampleCards)
 }

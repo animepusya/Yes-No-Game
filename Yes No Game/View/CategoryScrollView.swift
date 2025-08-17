@@ -10,31 +10,44 @@ import SwiftUI
 struct CategoryScrollView: View {
     let category: Category
     let cards: [Card]
-    var onCardSelected: (Card) -> Void
-    
-    @StateObject private var viewModel: CardViewModel
-    
-    init(category: Category, cards: [Card], onCardSelected: @escaping (Card) -> Void) {
-        self.category = category
-        self.cards = cards
-        self.onCardSelected = onCardSelected
-        _viewModel = StateObject(wrappedValue: CardViewModel(cards: cards))
-    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(category.title)
-                .font(.title2)
-                .fontWeight(.bold)
-                .padding(.horizontal)
+            HStack {
+                Text(category.title)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding(.horizontal)
+                Spacer()
+                Text("Ещё")
+                    .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.vertical, 6)
+                        .padding(.horizontal, 12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.gray.opacity(0.15))
+                        )
+                        .cornerRadius(12)
+                        .padding(.horizontal, 20)
+                
+            }
+            
+            
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 16) {
-                    ForEach(viewModel.cards) { card in
-                        IconCardView(card: card)
-                            .onTapGesture {
-                                onCardSelected(card)
-                            }
+                    ForEach(cards) { card in
+                        NavigationLink {
+                            CardView(
+                                viewModel: CardViewModel(
+                                    singleCard: card,
+                                    allCards: cards
+                                )
+                            )
+                        } label: {
+                            IconCardView(card: card)
+                        }
                     }
                     .padding()
                 }
@@ -44,9 +57,10 @@ struct CategoryScrollView: View {
 }
 
 
+
 #Preview {
     let sampleCards = CardLoader.load().filter { $0.category == Category.military.rawValue }
-    CategoryScrollView(category: .military, cards: sampleCards, onCardSelected: { _ in })
+    CategoryScrollView(category: .military, cards: sampleCards)
 }
 
 

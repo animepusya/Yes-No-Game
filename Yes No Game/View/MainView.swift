@@ -19,15 +19,13 @@ struct MainView: View {
                             NavigationLink {
                                 CategoryCardsView(
                                     category: category,
-                                    cards: viewModel.cards(for: category),
-                                    onCardSelected: { card in
-                                        viewModel.selectSpecificCard(card)
-                                    }
+                                    cards: viewModel.cards(for: category)
                                 )
                             } label: {
-                                CategoryScrollView(category: category, cards: viewModel.cards(for: category)) { card in
-                                    viewModel.selectSpecificCard(card)
-                                }
+                                CategoryScrollView(
+                                    category: category,
+                                    cards: viewModel.cards(for: category)
+                                )
                             }
                             .buttonStyle(PlainButtonStyle())
                         }
@@ -44,17 +42,6 @@ struct MainView: View {
                 )
             }
             .navigationTitle("Категории")
-            .navigationDestination(
-                isPresented: Binding<Bool>(
-                    get: { viewModel.selectedCard != nil },
-                    set: { if !$0 { viewModel.selectedCard = nil } }
-                )
-            ) {
-                if let card = viewModel.selectedCard {
-                    CardView(viewModel: CardViewModel(singleCard: card, allCards: viewModel.allCards, isRandomMode: viewModel.isRandomMode))
-                }
-                
-            }
             .background(
                 Image("mainmenu")
                     .resizable()
