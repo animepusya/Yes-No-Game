@@ -49,6 +49,15 @@ struct MainView: View {
                     .ignoresSafeArea()
             )
             .toolbarBackground(.hidden, for: .navigationBar)
+            .navigationDestination(item: $viewModel.selectedCard) { card in
+                            CardView(
+                                viewModel: CardViewModel(
+                                    singleCard: card,
+                                    allCards: viewModel.allCards,
+                                    isRandomMode: viewModel.isRandomMode
+                                )
+                            )
+                        }
         }
     }
 }
