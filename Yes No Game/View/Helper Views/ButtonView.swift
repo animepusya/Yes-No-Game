@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonView: View {
     let title: String
     let action: () -> Void
-    var backgroundColor: Color = .teal
+    var backgroundColor: Color = .sand
     var isDisabled: Bool = false
     
     
@@ -24,7 +24,7 @@ struct ButtonView: View {
                 .frame(maxWidth: .infinity)
                 .background(isDisabled ? Color.gray : backgroundColor)
                 .cornerRadius(16)
-                .shadow(color: backgroundColor.opacity(0.4), radius: 10, x: 0, y: 5)
+                .shadow(color: backgroundColor.opacity(0.25), radius: 10, x: 0, y: 5)
                 .padding(.horizontal)
         }
         .disabled(isDisabled)

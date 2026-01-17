@@ -12,36 +12,42 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack(alignment: .bottom) {
-                ScrollView {
-                    VStack(spacing: 20) {
-                        ForEach(viewModel.categoriesWithCards, id: \.self) { category in
-                            NavigationLink {
-                                CategoryCardsView(
-                                    category: category,
-                                    cards: viewModel.cards(for: category)
-                                )
-                            } label: {
-                                CategoryScrollView(
-                                    category: category,
-                                    cards: viewModel.cards(for: category)
-                                )
-                            }
-                            .buttonStyle(PlainButtonStyle())
+            
+            ScrollView {
+                VStack(spacing: 20) {
+                    ForEach(viewModel.categoriesWithCards, id: \.self) { category in
+                        NavigationLink {
+                            CategoryCardsView(
+                                category: category,
+                                cards: viewModel.cards(for: category)
+                            )
+                        } label: {
+                            CategoryScrollView(
+                                category: category,
+                                cards: viewModel.cards(for: category)
+                            )
                         }
+                        .buttonStyle(PlainButtonStyle())
                     }
-                    .padding(.vertical)
+                    ButtonView(
+                        title: "Случайная карточка",
+                        action: {
+                            viewModel.selectRandomCard()
+                        }
+                    )
                 }
-                
-                ButtonView(
-                    title: "Случайная карточка",
-                    action: {
-                        viewModel.selectRandomCard()
-                    },
-                    backgroundColor: .teal
-                )
+                .padding(.vertical)
             }
-            .navigationTitle("Категории")
+            
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("Категории")
+                        .font(.system(size: 22, weight: .semibold))
+                        .foregroundColor(.graphite)
+                }
+            }
+
             .background(
                 Image("mainmenu")
                     .resizable()
@@ -50,14 +56,14 @@ struct MainView: View {
             )
             .toolbarBackground(.hidden, for: .navigationBar)
             .navigationDestination(item: $viewModel.selectedCard) { card in
-                            CardView(
-                                viewModel: CardViewModel(
-                                    singleCard: card,
-                                    allCards: viewModel.allCards,
-                                    isRandomMode: viewModel.isRandomMode
-                                )
-                            )
-                        }
+                CardView(
+                    viewModel: CardViewModel(
+                        singleCard: card,
+                        allCards: viewModel.allCards,
+                        isRandomMode: viewModel.isRandomMode
+                    )
+                )
+            }
         }
     }
 }

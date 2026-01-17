@@ -17,19 +17,14 @@ struct CategoryScrollView: View {
                 Text(category.title)
                     .font(.title2)
                     .fontWeight(.bold)
+                    .foregroundColor(.graphite)
                     .padding(.horizontal)
                 Spacer()
-                Text("Ещё")
-                    .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 12)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12)
-                                .fill(Color.gray.opacity(0.15))
-                        )
-                        .cornerRadius(12)
-                        .padding(.horizontal, 20)
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.semibold))
+                    .foregroundColor(.graphite.opacity(0.35))
+                    .padding(.trailing, 20)
+
                 
             }
             
