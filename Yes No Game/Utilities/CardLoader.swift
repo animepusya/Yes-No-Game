@@ -15,21 +15,19 @@ struct CardLoader {
         
         loadCallCount += 1
         print("🧾 CardLoader.load() вызван \(loadCallCount) раз")
-        
-        guard let url = Bundle.main.url(forResource: "cards", withExtension: "json") else {
-            print("❌ Не найден путь к cards.json")
+
+        guard let data = RemoteContentService.shared.loadCardsDataFallbackToBundle() else {
+            print("❌ Не удалось получить данные cards.json ни из кэша, ни из Bundle")
             return []
         }
         
         do {
-            let data = try Data(contentsOf: url)
             let cards = try JSONDecoder().decode([Card].self, from: data)
             print("✅ Успешно загружено карточек: \(cards.count)")
             return cards
         } catch {
-            print("❌ Ошибка при загрузке или декодировании: \(error)")
+            print("❌ Ошибка при декодировании: \(error)")
             return []
         }
     }
 }
-

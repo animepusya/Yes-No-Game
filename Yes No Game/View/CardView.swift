@@ -134,11 +134,21 @@ struct CardView: View {
                         isExpanded: $isAnswerExpanded)
                 }
                 .background(
-                    Image(card.imageName)
-                        .resizable()
-                        .scaledToFill()
-                        .overlay(Color.black.opacity(0.4))
-                        .ignoresSafeArea()
+                    ZStack {
+                        if let url = card.imageUrl, !url.isEmpty {
+                            RemoteCardImage(urlString: url)
+                        } else if let name = card.imageName, !name.isEmpty {
+                            Image(name)
+                                .resizable()
+                                .scaledToFill()
+                        } else {
+                            // если вдруг вообще нет картинки
+                            Color.black
+                        }
+
+                        Color.black.opacity(0.4) // твой затемняющий слой
+                    }
+                    .ignoresSafeArea()
                 )
                 .animation(.easeInOut(duration: 0.4), value: viewModel.showHint)
                 

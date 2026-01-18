@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class MainViewModel: ObservableObject {
     @Published var categoriesWithCards: [Category] = []
     @Published var selectedCard: Card?
@@ -48,6 +49,21 @@ class MainViewModel: ObservableObject {
     func selectSpecificCard(_ card: Card) {
         selectedCard = card
         isRandomMode = false
+    }
+    
+    func refreshRemoteContent() async {
+        do {
+            let didUpdate = try await RemoteContentService.shared.refreshIfNeeded()
+            if didUpdate {
+                loadAllCards()
+                loadCategoriesWithCards()
+                print("🌐 Контент обновлён и перезагружен")
+            } else {
+                print("🌐 Обновлений нет")
+            }
+        } catch {
+            print("🌐 Ошибка обновления контента: \(error)")
+        }
     }
 }
 

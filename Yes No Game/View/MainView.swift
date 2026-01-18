@@ -12,7 +12,6 @@ struct MainView: View {
     
     var body: some View {
         NavigationStack {
-            
             ScrollView {
                 VStack(spacing: 20) {
                     ForEach(viewModel.categoriesWithCards, id: \.self) { category in
@@ -39,6 +38,9 @@ struct MainView: View {
                 .padding(.vertical)
             }
             
+            .task {
+                await viewModel.refreshRemoteContent()
+            }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {

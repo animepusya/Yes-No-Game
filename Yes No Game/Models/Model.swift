@@ -14,10 +14,11 @@ struct Card: Identifiable, Codable, Hashable {
     let description: String
     let hint: String
     let explanation: String
-    let imageName: String
+    let imageName: String?
+    let imageUrl: String?
     
     enum CodingKeys: String, CodingKey {
-        case category, title, description, hint, explanation, imageName
+        case category, title, description, hint, explanation, imageName, imageUrl
     }
     
 }
@@ -37,7 +38,7 @@ enum Category: String, CaseIterable {
         case .films: return "Фильмы"
         case .cartoons: return "Мультики"
         case .anime: return "Аниме"
-        case .ordinary: return "Обычные"
+        case .ordinary: return "Повседневные"
         }
     }
 }
