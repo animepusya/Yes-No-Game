@@ -20,7 +20,6 @@ class MainViewModel: ObservableObject {
     init() {
         loadAllCards()
         loadCategoriesWithCards()
-        // Можно сразу прогреть картинки при первом запуске (если есть сеть)
         RemoteContentService.shared.prefetchImages(from: allCards)
     }
 
@@ -55,7 +54,6 @@ class MainViewModel: ObservableObject {
         isRandomMode = false
     }
 
-    // ✅ дергаем из MainView через .task
     func refreshRemoteContentOnce() async {
         guard !didRunRefresh else { return }
         didRunRefresh = true

@@ -8,7 +8,7 @@
 import Foundation
 
 struct Card: Identifiable, Codable, Hashable {
-    var id = UUID()
+    let id: Int
     let category: String
     let title: String
     let description: String
@@ -16,11 +16,6 @@ struct Card: Identifiable, Codable, Hashable {
     let explanation: String
     let imageName: String?
     let imageUrl: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case category, title, description, hint, explanation, imageName, imageUrl
-    }
-    
 }
 
 enum Category: String, CaseIterable {

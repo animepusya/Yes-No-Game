@@ -18,14 +18,12 @@ final class RemoteImageLoader: ObservableObject {
             return
         }
 
-        // 1) Диск-кеш (оффлайн-first)
         if let cached = ImageDiskCache.shared.load(for: url),
            let img = UIImage(data: cached) {
             self.image = img
             return
         }
 
-        // 2) Сеть (если кеш пуст)
         Task {
             await loadFromNetwork(url)
         }

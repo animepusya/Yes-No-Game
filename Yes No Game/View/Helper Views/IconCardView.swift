@@ -50,7 +50,7 @@ struct IconCardView: View {
 }
 
 #Preview {
-    IconCardView(card: Card(category: "Military",
+    IconCardView(card: Card(id: 5, category: "Military",
                             title: "Салют",
                             description: "Солдаты стояли на крыше и стреляли в небо. Это спасло город.",
                             hint: "Они стреляли не по врагу.",
