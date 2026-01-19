@@ -21,19 +21,15 @@ struct RemoteCardImage: View {
                 Rectangle()
                     .opacity(0.15)
                     .overlay {
-                        if loader.isLoading {
-                            ProgressView()
-                        } else {
-                            Image(systemName: "photo")
-                                .imageScale(.large)
-                                .opacity(0.4)
-                        }
+                        Image(systemName: "photo")
+                            .imageScale(.large)
+                            .opacity(0.4)
                     }
             }
         }
         .clipped()
-        .task(id: urlString) { // важно: id, чтобы при смене url перезагрузилось один раз
-            await loader.load(from: urlString)
+        .task(id: urlString) {
+            loader.loadFromCacheOrNetwork(urlString)
         }
     }
 }

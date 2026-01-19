@@ -39,7 +39,7 @@ struct MainView: View {
             }
             
             .task {
-                await viewModel.refreshRemoteContent()
+                await viewModel.refreshRemoteContentOnce()
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

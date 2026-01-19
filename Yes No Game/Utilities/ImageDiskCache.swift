@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CryptoKit
 
 final class ImageDiskCache {
     static let shared = ImageDiskCache()
@@ -21,9 +22,10 @@ final class ImageDiskCache {
     }
 
     private func fileURL(for url: URL) -> URL {
-        // безопасное имя файла из url
-        let name = String(url.absoluteString.hashValue)
-        return imagesDir.appendingPathComponent(name)
+        let key = url.absoluteString
+        let hash = SHA256.hash(data: Data(key.utf8))
+        let name = hash.map { String(format: "%02x", $0) }.joined()
+        return imagesDir.appendingPathComponent(name).appendingPathExtension("img")
     }
 
     func load(for url: URL) -> Data? {

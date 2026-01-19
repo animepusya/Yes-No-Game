@@ -10,29 +10,38 @@ import UIKit
 @MainActor
 final class RemoteImageLoader: ObservableObject {
     @Published var image: UIImage?
-    @Published var isLoading = false
 
-    func load(from urlString: String) async {
-        guard !isLoading else { return }
-        guard let url = URL(string: urlString) else { return }
+    func loadFromCacheOrNetwork(_ urlString: String) {
+        guard let url = URL(string: urlString),
+              url.scheme?.hasPrefix("http") == true else {
+            print("❌ Некорректный imageUrl: \(urlString)")
+            return
+        }
 
-        // Диск-кеш
+        // 1) Диск-кеш (оффлайн-first)
         if let cached = ImageDiskCache.shared.load(for: url),
            let img = UIImage(data: cached) {
             self.image = img
             return
         }
 
-        isLoading = true
-        defer { isLoading = false }
+        // 2) Сеть (если кеш пуст)
+        Task {
+            await loadFromNetwork(url)
+        }
+    }
 
+    private func loadFromNetwork(_ url: URL) async {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             guard let img = UIImage(data: data) else { return }
             ImageDiskCache.shared.save(data, for: url)
             self.image = img
         } catch {
-            // можно оставить пустым
+            let nsError = error as NSError
+            if nsError.code != NSURLErrorNotConnectedToInternet {
+                print("🌐 Remote image load error: \(error)")
+            }
         }
     }
 }

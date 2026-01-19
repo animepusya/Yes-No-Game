@@ -32,7 +32,7 @@ class CardViewModel: ObservableObject {
         var next: Card?
         repeat {
             next = cards.randomElement()
-        } while (next?.title == currentCard?.title && next?.category == currentCard?.category) && cards.count > 1
+        } while next?.id == currentCard?.id && cards.count > 1
 
         currentCard = next
         showHint = false
