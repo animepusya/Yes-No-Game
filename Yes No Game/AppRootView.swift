@@ -7,22 +7,80 @@
 
 import SwiftUI
 
-struct AppRootView: View {
-    @State private var showLaunchScreen = true
+enum AppSection: Hashable {
+    case categories
+    case about
+    case rules
 
-    var body: some View {
-        MainView()
-            .overlay {
-                if showLaunchScreen {
-                    LaunchScreenView {
-                        showLaunchScreen = false
-                    }
-                    .transition(.identity)
-                    .zIndex(1)
-                }
-            }
+    var title: String {
+        switch self {
+        case .categories: return "Категории"
+        case .about: return "О приложении"
+        case .rules: return "Правила игры"
+        }
     }
 }
 
-
-
+struct AppRootView: View {
+    @State private var showLaunchScreen = true
+    
+    @State private var selectedSection: AppSection = .categories
+    @StateObject private var mainViewModel = MainViewModel()
+    
+    var body: some View {
+        NavigationStack {
+            content
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text(selectedSection.title)
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundColor(.graphite)
+                    }
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        AppMenuView(
+                            selectedSection: selectedSection,
+                            onSelectSection: { selected in
+                                selectedSection = selected
+                            },
+                            onRandomCard: {
+                                mainViewModel.selectRandomCard()
+                            }
+                        )
+                    }
+                }
+                .toolbarBackground(.hidden, for: .navigationBar)
+                .navigationDestination(item: $mainViewModel.selectedCard) { card in
+                    CardView(
+                        viewModel: CardViewModel(
+                            singleCard: card,
+                            allCards: mainViewModel.allCards,
+                            isRandomMode: mainViewModel.isRandomMode
+                        )
+                    )
+                }
+        }
+        .overlay {
+            if showLaunchScreen {
+                LaunchScreenView {
+                    showLaunchScreen = false
+                }
+                .transition(.identity)
+                .zIndex(1)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private var content: some View {
+        switch selectedSection {
+        case .categories:
+            MainView(viewModel: mainViewModel)
+        case .about:
+            AboutView()
+        case .rules:
+            RulesView()
+        }
+    }
+}
