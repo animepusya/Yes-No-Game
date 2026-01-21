@@ -17,14 +17,14 @@ struct ButtonView: View {
     var body: some View {
         Button(action: action) {
             Text(title)
-                .font(.title2)
-                .fontWeight(.bold)
-                .foregroundColor(.white)
+                .font(.title3)
+                .fontWeight(.semibold)
+                .foregroundColor(Color.black.opacity(0.85))
                 .padding(.vertical, 14)
                 .frame(maxWidth: .infinity)
-                .background(isDisabled ? Color.gray : backgroundColor)
+                .background(backgroundColor.opacity(isDisabled ? 0.45 : 1))
                 .cornerRadius(16)
-                .shadow(color: backgroundColor.opacity(0.25), radius: 10, x: 0, y: 5)
+                .shadow(color: Color.black.opacity(0.12), radius: 4, x: 0, y: 2)
                 .padding(.horizontal)
         }
         .disabled(isDisabled)

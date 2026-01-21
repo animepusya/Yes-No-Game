@@ -19,57 +19,36 @@ struct CardView: View {
                 
                 VStack(alignment: .leading,spacing: 20) {
                     
-                    HStack {
-                        Button(action: {
-                            dismiss()
-                        }) {
-                            HStack(spacing: 6) {
-                                Image(systemName: "chevron.left")
-                                Text("Вернуться")
-                            }
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding(10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 16)
-                                    .fill(Color.blue.opacity(0.5))
-                                    .shadow(radius: 5)
-                            )
-                            .cornerRadius(16)
-                            .shadow(color: .blue.opacity(0.4), radius: 10, x: 0, y: 5)
-                        }
+                    HStack(spacing: 10) {
+                        
+                        DirectionalChipButton(
+                            title: "Назад",
+                            direction: .back,
+                            action: { dismiss() },
+                            style: .neutral
+                        )
                         
                         Spacer()
                         
                         if viewModel.isRandomMode {
-                            Button(action: {
-                                guard !isButtonDisabled else { return }
-                                
-                                isButtonDisabled = true
-                                withAnimation {
-                                    viewModel.nextCard()
-                                }
-                                
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                    isButtonDisabled = false
-                                }
-                            }) {
-                                HStack(spacing: 6) {
-                                    Text("Следующая карточка")
-                                    Image(systemName: "chevron.right")
-                                }
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .fill(Color(red: 235/255, green: 158/255, blue: 83/255).opacity(0.5))
-                                        .shadow(radius: 5)
-                                )
-                                .cornerRadius(16)
-                                .shadow(color: .orange.opacity(0.4), radius: 10, x: 0, y: 5)
-                            }
-                            .disabled(isButtonDisabled)
+                            DirectionalChipButton(
+                                title: "Следующая",
+                                direction: .forward,
+                                action: {
+                                    guard !isButtonDisabled else { return }
+                                    
+                                    isButtonDisabled = true
+                                    withAnimation(.easeInOut(duration: 0.25)) {
+                                        viewModel.nextCard()
+                                    }
+                                    
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                                        isButtonDisabled = false
+                                    }
+                                },
+                                style: .accent,
+                                isDisabled: isButtonDisabled
+                            )
                         }
                     }
                     .padding([.top, .horizontal])
@@ -123,15 +102,16 @@ struct CardView: View {
                                 viewModel.showHint.toggle()
                             }
                         },
-                        backgroundColor: Color(red: 235/255, green: 158/255, blue: 83/255),
+                        backgroundColor: Color.sand.opacity(0.65),
                         isDisabled: false
                     )
                     
                     ExpandableButtonView(
                         title: "Полная история",
                         explanation: card.explanation,
-                        backgroundColor: .teal,
-                        isExpanded: $isAnswerExpanded)
+                        backgroundColor: .sand,
+                        isExpanded: $isAnswerExpanded
+                    )
                 }
                 .background(
                     ZStack {
@@ -142,13 +122,11 @@ struct CardView: View {
                                 .resizable()
                                 .scaledToFill()
                         } else {
-                            // если вдруг вообще нет картинки
                             Color.black
                         }
-
-                        Color.black.opacity(0.4) // твой затемняющий слой
+                        Color.black.opacity(0.4)
                     }
-                    .ignoresSafeArea()
+                        .ignoresSafeArea()
                 )
                 .animation(.easeInOut(duration: 0.4), value: viewModel.showHint)
                 

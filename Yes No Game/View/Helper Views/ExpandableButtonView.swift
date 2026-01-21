@@ -14,37 +14,40 @@ struct ExpandableButtonView: View {
     @Binding var isExpanded: Bool
     
     var body: some View {
-        VStack(spacing: 0) {
-            Button(action: {
-                withAnimation(.spring()) {
-                    isExpanded.toggle()
-                }
-            }) {
-                VStack(spacing: 8) {
-                    Text(title)
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                    
-                    if isExpanded {
-                        Text(explanation)
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.leading)
-                            .padding()
-                            .scaleEffect(0.9)
-                            .transition(.asymmetric(insertion: .scale.combined(with: .opacity), removal: .scale.combined(with: .opacity)))
-                    }
-                }
-                .padding(.vertical, 14)
-                .frame(maxWidth: .infinity)
-                .background(backgroundColor)
-                .cornerRadius(16)
-                .shadow(color: backgroundColor.opacity(0.4), radius: 10, x: 0, y: 5)
-                .padding(.horizontal)
+        Button(action: {
+            withAnimation(.easeInOut(duration: 0.35)) {
+                isExpanded.toggle()
             }
-            .buttonStyle(.plain)
+        }) {
+            VStack(spacing: 10) {
+                Text(title)
+                    .font(.title3)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.black.opacity(0.85))
+
+                if isExpanded {
+                    Text(explanation)
+                        .font(.body)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.leading)
+                        .padding(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(Color.black.opacity(0.35))
+                        )
+                        .transition(.opacity.combined(with: .move(edge: .bottom)))
+                }
+            }
+            .padding(.vertical, 14)
+            .padding(.horizontal, 14)
+            .frame(maxWidth: .infinity)
+            .background(backgroundColor)
+            .cornerRadius(16)
+            .shadow(color: Color.black.opacity(0.12), radius: 4, x: 0, y: 2)
+            .padding(.horizontal)
         }
+        .buttonStyle(.plain)
     }
 }
 
@@ -63,6 +66,6 @@ struct ExpandableButtonPreview: View {
             isExpanded: $isExpanded
         )
         .padding()
-        .background(Color.white)
+        .background(Color.gray.opacity(0.15))
     }
 }
