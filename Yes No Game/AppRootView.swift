@@ -63,7 +63,7 @@ struct AppRootView: View {
         }
         .overlay {
             if showLaunchScreen {
-                LaunchScreenView {
+                LaunchOverlayView {
                     showLaunchScreen = false
                 }
                 .transition(.identity)

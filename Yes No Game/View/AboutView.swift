@@ -19,7 +19,7 @@ struct AboutView: View {
             VStack(alignment: .leading, spacing: 16) {
                 
                 sectionCard {
-                    Text("Yes No Game — это набор карточек-загадок (данеток), где нужно угадать историю по короткому описанию. Открывай подсказку, а затем полную историю — и проверяй свою догадку.")
+                    Text("Danetka — это набор карточек-загадок (данеток), где нужно угадать историю по короткому описанию. Открывай подсказку, а затем полную историю — и проверяй свою догадку.")
                         .font(.body)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.leading)
