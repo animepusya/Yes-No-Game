@@ -41,8 +41,12 @@ struct IconCardView: View {
             Text(card.title)
                 .font(.headline)
                 .foregroundColor(.white)
-                .padding(8)
-                .shadow(radius: 5)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .padding(.horizontal, 8)
+                .padding(.bottom, 12)
+                .frame(maxWidth: .infinity)
+                .shadow(radius: 4)
         }
         .frame(width: 160, height: 220)
         .shadow(radius: 6)
@@ -51,7 +55,7 @@ struct IconCardView: View {
 
 #Preview {
     IconCardView(card: Card(id: 5, category: "Military",
-                            title: "Салют",
+                            title: "Бас Бас Бас это Хардбас",
                             description: "Солдаты стояли на крыше и стреляли в небо. Это спасло город.",
                             hint: "Они стреляли не по врагу.",
                             explanation: "Солдаты запускали сигнальные ракеты, чтобы показать сбитому пилоту, где находится база. Пилот вернулся, сообщил координаты врага — и это спасло город.",

@@ -20,26 +20,15 @@ struct CategoryCardsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Button(action: {
-                    dismiss()
-                }) {
-                    HStack(spacing: 6) {
-                        Image(systemName: "chevron.left")
-                        Text("Вернуться")
-                    }
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding(10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(Color.blue.opacity(0.5))
-                            .shadow(radius: 5)
-                    )
-                    .cornerRadius(16)
-                    .shadow(color: .blue.opacity(0.4), radius: 10, x: 0, y: 5)
-                }
-
+            HStack(spacing: 10) {
+                
+                DirectionalChipButton(
+                    title: "Назад",
+                    direction: .back,
+                    action: { dismiss() },
+                    style: .neutral
+                )
+                
                 Spacer()
             }
             .padding([.top, .horizontal])
