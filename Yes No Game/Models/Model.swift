@@ -18,14 +18,16 @@ struct Card: Identifiable, Codable, Hashable {
     let imageUrl: String?
 }
 
-enum Category: String, CaseIterable {
+enum Category: String, CaseIterable, Hashable {
     case military = "Military"
     case horror = "Horror"
     case films = "Films"
     case cartoons = "Cartoons"
     case anime = "Anime"
     case ordinary = "Ordinary"
-    
+    case science = "Science"
+    case travel = "Travel"
+
     var title: String {
         switch self {
         case .military: return "Военные"
@@ -34,6 +36,8 @@ enum Category: String, CaseIterable {
         case .cartoons: return "Мультики"
         case .anime: return "Аниме"
         case .ordinary: return "Повседневные"
+        case .science: return "Наука"
+        case .travel: return "Путешествия"
         }
     }
 }

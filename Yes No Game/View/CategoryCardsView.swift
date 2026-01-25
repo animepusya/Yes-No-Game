@@ -21,14 +21,12 @@ struct CategoryCardsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 10) {
-                
                 DirectionalChipButton(
                     title: "Назад",
                     direction: .back,
                     action: { dismiss() },
                     style: .neutral
                 )
-                
                 Spacer()
             }
             .padding([.top, .horizontal])
@@ -46,6 +44,7 @@ struct CategoryCardsView: View {
                         } label: {
                             IconCardView(card: card)
                         }
+                        .buttonStyle(.plain)
                     }
                 }
                 .padding()
@@ -61,11 +60,13 @@ struct CategoryCardsView: View {
     }
 }
 
-
-
-
-
 #Preview {
-    let sampleCards = CardLoader.load().filter { $0.category == Category.military.rawValue }
-    CategoryScrollView(category: .military, cards: sampleCards)
+    let viewModel = MainViewModel()
+    let sampleCategory: Category = .military
+    let sampleCards = viewModel.cards(for: sampleCategory)
+
+    CategoryCardsView(
+        category: sampleCategory,
+        cards: sampleCards,
+    )
 }

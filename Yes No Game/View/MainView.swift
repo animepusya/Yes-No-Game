@@ -14,18 +14,12 @@ struct MainView: View {
         ScrollView {
             VStack(spacing: 20) {
                 ForEach(viewModel.categoriesWithCards, id: \.self) { category in
-                    NavigationLink {
-                        CategoryCardsView(
-                            category: category,
-                            cards: viewModel.cards(for: category)
-                        )
-                    } label: {
-                        CategoryScrollView(
-                            category: category,
-                            cards: viewModel.cards(for: category)
-                        )
-                    }
-                    .buttonStyle(PlainButtonStyle())
+                    CategoryScrollView(
+                        category: category,
+                        cards: viewModel.cards(for: category),
+                        onOpenCategory: { viewModel.requestOpenCategory($0) },
+                        onOpenCard: { card, cat in viewModel.requestOpenCard(card, in: cat) }
+                    )
                 }
             }
             .padding(.vertical)
@@ -45,3 +39,4 @@ struct MainView: View {
 #Preview {
     MainView(viewModel: MainViewModel())
 }
+

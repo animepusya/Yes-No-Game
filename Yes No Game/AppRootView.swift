@@ -51,6 +51,12 @@ struct AppRootView: View {
                     }
                 }
                 .toolbarBackground(.hidden, for: .navigationBar)
+                .navigationDestination(item: $mainViewModel.selectedCategory) { category in
+                    CategoryCardsView(
+                        category: category,
+                        cards: mainViewModel.cards(for: category)
+                    )
+                }
                 .navigationDestination(item: $mainViewModel.selectedCard) { card in
                     CardView(
                         viewModel: CardViewModel(
@@ -58,6 +64,13 @@ struct AppRootView: View {
                             allCards: mainViewModel.allCards,
                             isRandomMode: mainViewModel.isRandomMode
                         )
+                    )
+                }
+                .sheet(item: $mainViewModel.spoilerPrompt) { prompt in
+                    SpoilerWarningSheet(
+                        category: prompt.category,
+                        onContinue: { mainViewModel.spoilerContinue(dontShowAgain: false) },
+                        onDontShowAgain: { mainViewModel.spoilerContinue(dontShowAgain: true) }
                     )
                 }
         }
