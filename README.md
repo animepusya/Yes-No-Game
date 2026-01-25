@@ -90,7 +90,8 @@ This architecture makes the project easy to extend and maintain.
 
 ---
 
-## 🔮 Possible Improvements
+## 🔮 Future Improvements
 
 - English localization
 - More riddle packs
+- Monetization
