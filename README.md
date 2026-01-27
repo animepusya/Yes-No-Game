@@ -94,8 +94,8 @@ This architecture makes the project easy to extend and maintain.
 
 ### ✅ Done
 - English localization (RU / EN)
+- Monetization
 
 ### 🔮 Planned
 - More riddle packs
-- Monetization
 
