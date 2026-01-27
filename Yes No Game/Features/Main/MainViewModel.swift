@@ -10,20 +10,12 @@ import Foundation
 @MainActor
 class MainViewModel: ObservableObject {
     @Published var categoriesWithCards: [Category] = []
-    @Published var selectedCategory: Category?
-    @Published var selectedCard: Card?
-    @Published var isRandomMode: Bool = false
     @Published var spoilerPrompt: SpoilerPrompt?
     
     @Published private(set) var allCards: [Card] = []
     
     private var didRunRefresh = false
-    
-    private enum PendingNavigation {
-        case category(Category)
-        case card(Card, allCards: [Card], isRandomMode: Bool)
-    }
-    private var pendingNavigation: PendingNavigation?
+    private var pendingRoute: Route?
     
     struct SpoilerPrompt: Identifiable {
         let category: Category
@@ -60,33 +52,45 @@ class MainViewModel: ObservableObject {
         guard spoilerCategories.contains(category) else { return false }
         return !SpoilerWarningStore.shouldSkipWarning(for: category)
     }
-    
-    // MARK: - Requests from Views (MVVM)
-    
-    func requestOpenCategory(_ category: Category) {
+
+    // MARK: - Routes (NavigationPath)
+
+    func makeCategoryRoute(_ category: Category) -> Route? {
         if shouldShowSpoilerWarning(for: category) {
-            pendingNavigation = .category(category)
+            pendingRoute = .category(category)
             spoilerPrompt = SpoilerPrompt(category: category)
-            return
+            return nil
         }
-        selectedCategory = category
+        return .category(category)
     }
-    
-    func requestOpenCard(_ card: Card, in category: Category) {
-        let categoryCards = cards(for: category)
-        
+
+    func makeCardRoute(_ card: Card, in category: Category, isRandomMode: Bool) -> Route? {
+        let all = cards(for: category)
+
         if shouldShowSpoilerWarning(for: category) {
-            pendingNavigation = .card(card, allCards: categoryCards, isRandomMode: false)
+            pendingRoute = .card(card, allCards: all, isRandomMode: isRandomMode)
             spoilerPrompt = SpoilerPrompt(category: category)
-            return
+            return nil
         }
-        
-        selectedCard = card
-        isRandomMode = false
+
+        return .card(card, allCards: all, isRandomMode: isRandomMode)
     }
-    
-    func spoilerContinue(dontShowAgain: Bool) {
-        guard let prompt = spoilerPrompt else { return }
+
+    func makeRandomCardRoute() -> Route? {
+        let filteredCards = allCards.filter { card in
+            categoriesWithCards.contains(where: { $0.rawValue == card.category })
+        }
+        guard let random = filteredCards.randomElement() else { return nil }
+
+        guard let category = Category.allCases.first(where: { $0.rawValue == random.category }) else {
+            return .card(random, allCards: allCards, isRandomMode: true)
+        }
+
+        return makeCardRoute(random, in: category, isRandomMode: true)
+    }
+
+    func consumePendingRoute(dontShowAgain: Bool) -> Route? {
+        guard let prompt = spoilerPrompt else { return nil }
         let category = prompt.category
         
         if dontShowAgain {
@@ -94,43 +98,10 @@ class MainViewModel: ObservableObject {
         }
         
         spoilerPrompt = nil
-        
-        guard let pending = pendingNavigation else { return }
-        pendingNavigation = nil
-        
-        switch pending {
-        case .category(let cat):
-            selectedCategory = cat
-            
-        case .card(let card, _, let randomMode):
-            selectedCard = card
-            isRandomMode = randomMode
-        }
-    }
-    
-    // MARK: - Random card
-    
-    func selectRandomCard() {
-        let filteredCards = allCards.filter { card in
-            categoriesWithCards.contains(where: { $0.rawValue == card.category })
-        }
-        guard let random = filteredCards.randomElement() else { return }
-        
-        if let category = Category.allCases.first(where: { $0.rawValue == random.category }) {
-            if shouldShowSpoilerWarning(for: category) {
-                pendingNavigation = .card(random, allCards: cards(for: category), isRandomMode: true)
-                spoilerPrompt = SpoilerPrompt(category: category)
-                return
-            }
-        }
-        
-        selectedCard = random
-        isRandomMode = true
-    }
-    
-    func selectSpecificCard(_ card: Card) {
-        selectedCard = card
-        isRandomMode = false
+
+        let route = pendingRoute
+        pendingRoute = nil
+        return route
     }
     
     // MARK: - Remote refresh
@@ -140,7 +111,7 @@ class MainViewModel: ObservableObject {
         didRunRefresh = true
         await refreshRemoteContent()
     }
-    
+
     func refreshRemoteContent() async {
         do {
             let didUpdate = try await CardsRepository.shared.refreshIfNeeded()

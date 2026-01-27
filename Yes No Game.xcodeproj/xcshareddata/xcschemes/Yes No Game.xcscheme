@@ -50,6 +50,13 @@
             ReferencedContainer = "container:Yes No Game.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <AdditionalOptions>
+         <AdditionalOption
+            key = "MallocScribble"
+            value = ""
+            isEnabled = "YES">
+         </AdditionalOption>
+      </AdditionalOptions>
       <StoreKitConfigurationFileReference
          identifier = "../../Yes No Game/Resources/Danetka.storekit">
       </StoreKitConfigurationFileReference>

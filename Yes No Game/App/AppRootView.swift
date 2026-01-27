@@ -14,8 +14,10 @@ struct AppRootView: View {
     @StateObject private var mainViewModel = MainViewModel()
     @StateObject private var purchases = PurchaseManager()
     
+    @State private var path: [Route] = []
+    
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             content
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
@@ -30,34 +32,57 @@ struct AppRootView: View {
                             selectedSection: selectedSection,
                             onSelectSection: { selected in
                                 selectedSection = selected
+                                if selected != .categories { path.removeAll() }
                             },
                             onRandomCard: {
-                                mainViewModel.selectRandomCard()
+                                if let route = mainViewModel.makeRandomCardRoute() {
+                                    if mainViewModel.spoilerPrompt == nil {
+                                        path.append(route)
+                                    }
+                                }
                             }
                         )
                     }
                 }
                 .toolbarBackground(.hidden, for: .navigationBar)
-                .navigationDestination(item: $mainViewModel.selectedCategory) { category in
-                    CategoryCardsView(
-                        category: category,
-                        cards: mainViewModel.cards(for: category)
-                    )
-                }
-                .navigationDestination(item: $mainViewModel.selectedCard) { card in
-                    CardView(
-                        viewModel: CardViewModel(
-                            singleCard: card,
-                            allCards: mainViewModel.allCards,
-                            isRandomMode: mainViewModel.isRandomMode
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .category(let category):
+                        CategoryCardsView(
+                            category: category,
+                            cards: mainViewModel.cards(for: category),
+                            onOpenCard: { card, cat in
+                                if let route = mainViewModel.makeCardRoute(card, in: cat, isRandomMode: false) {
+                                    if mainViewModel.spoilerPrompt == nil {
+                                        path.append(route)
+                                    }
+                                }
+                            }
                         )
-                    )
+                        
+                    case .card(let card, let allCards, let isRandomMode):
+                        CardView(
+                            viewModel: CardViewModel(
+                                singleCard: card,
+                                allCards: allCards,
+                                isRandomMode: isRandomMode
+                            )
+                        )
+                    }
                 }
                 .sheet(item: $mainViewModel.spoilerPrompt) { prompt in
                     SpoilerWarningSheet(
                         category: prompt.category,
-                        onContinue: { mainViewModel.spoilerContinue(dontShowAgain: false) },
-                        onDontShowAgain: { mainViewModel.spoilerContinue(dontShowAgain: true) }
+                        onContinue: {
+                            if let route = mainViewModel.consumePendingRoute(dontShowAgain: false) {
+                                path.append(route)
+                            }
+                        },
+                        onDontShowAgain: {
+                            if let route = mainViewModel.consumePendingRoute(dontShowAgain: true) {
+                                path.append(route)
+                            }
+                        }
                     )
                 }
         }
@@ -77,9 +102,27 @@ struct AppRootView: View {
     private var content: some View {
         switch selectedSection {
         case .categories:
-            MainView(viewModel: mainViewModel)
+            MainView(
+                viewModel: mainViewModel,
+                onOpenCategory: { category in
+                    if let route = mainViewModel.makeCategoryRoute(category) {
+                        if mainViewModel.spoilerPrompt == nil {
+                            path.append(route)
+                        }
+                    }
+                },
+                onOpenCard: { card, category in
+                    if let route = mainViewModel.makeCardRoute(card, in: category, isRandomMode: false) {
+                        if mainViewModel.spoilerPrompt == nil {
+                            path.append(route)
+                        }
+                    }
+                }
+            )
+            
         case .settings:
             SettingsView()
+            
         case .rules:
             RulesView()
         }

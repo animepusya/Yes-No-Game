@@ -14,8 +14,9 @@ struct CategoryCardsView: View {
 
     let category: Category
     let cards: [Card]
+    let onOpenCard: (Card, Category) -> Void
 
-    let columns = [
+    private let columns = [
         GridItem(.flexible(), spacing: 16),
         GridItem(.flexible(), spacing: 16)
     ]
@@ -36,13 +37,13 @@ struct CategoryCardsView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(cards) { card in
-                        NavigationLink {
-                            CardView(
-                                viewModel: CardViewModel(
-                                    singleCard: card,
-                                    allCards: cards
-                                )
-                            )
+                        Button {
+                            // ✅ единая логика: либо открываем, либо paywall
+                            if purchases.hasAccess(to: category) {
+                                onOpenCard(card, category)
+                            } else {
+                                showPaywall = true
+                            }
                         } label: {
                             IconCardView(card: card)
                         }
@@ -79,5 +80,6 @@ struct CategoryCardsView: View {
     CategoryCardsView(
         category: sampleCategory,
         cards: sampleCards,
+        onOpenCard: { _, _ in }
     )
 }

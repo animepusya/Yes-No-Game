@@ -9,6 +9,9 @@ import SwiftUI
 
 struct MainView: View {
     @ObservedObject var viewModel: MainViewModel
+    
+    let onOpenCategory: (Category) -> Void
+    let onOpenCard: (Card, Category) -> Void
 
     var body: some View {
         ScrollView {
@@ -17,8 +20,12 @@ struct MainView: View {
                     CategoryScrollView(
                         category: category,
                         cards: viewModel.cards(for: category),
-                        onOpenCategory: { viewModel.requestOpenCategory($0) },
-                        onOpenCard: { card, cat in viewModel.requestOpenCard(card, in: cat) }
+                        onOpenCategory: { cat in
+                            onOpenCategory(cat)
+                        },
+                        onOpenCard: { card, cat in
+                            onOpenCard(card, cat)
+                        }
                     )
                 }
             }
@@ -37,6 +44,9 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(viewModel: MainViewModel())
+    MainView(
+        viewModel: MainViewModel(),
+        onOpenCategory: { _ in },
+        onOpenCard: { _, _ in }
+    )
 }
-
