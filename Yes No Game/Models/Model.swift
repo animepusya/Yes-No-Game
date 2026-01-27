@@ -19,13 +19,13 @@ struct Card: Identifiable, Codable, Hashable {
 }
 
 enum Category: String, CaseIterable, Hashable {
-    case military = "Military"
+    case ordinary = "Ordinary"
     case horror = "Horror"
+    case science = "Science"
+    case anime = "Anime"
+    case military = "Military"
     case films = "Films"
     case cartoons = "Cartoons"
-    case anime = "Anime"
-    case ordinary = "Ordinary"
-    case science = "Science"
     case travel = "Travel"
 
     var title: String {

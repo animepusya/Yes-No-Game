@@ -37,7 +37,7 @@ struct AppMenuView: View {
             } label: {
                 Label(
                     "menu.settings",
-                    systemImage: selectedSection == .settings ? "checkmark.circle.fill" : "info.circle"
+                    systemImage: selectedSection == .settings ? "checkmark.circle.fill" : "gearshape"
                 )
             }
 

@@ -17,8 +17,21 @@ struct SettingsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
+                
+                sectionCard {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("settings.description_title")
+                            .font(.headline)
+                            .foregroundColor(.white)
 
-                // ✅ 1) Приложение: Язык + Версия
+                        Text("settings.description")
+                            .font(.body)
+                            .foregroundColor(.white)
+                            .multilineTextAlignment(.leading)
+                            .lineSpacing(2)
+                    }
+                }
+
                 sectionCard {
                     VStack(alignment: .leading, spacing: 12) {
                         Text("settings.app_title")
@@ -52,7 +65,6 @@ struct SettingsView: View {
                     }
                 }
 
-                // ✅ 2) Покупки: заглушки
                 sectionCard {
                     VStack(alignment: .leading, spacing: 12) {
                         Text("settings.purchases_title")
@@ -60,7 +72,6 @@ struct SettingsView: View {
                             .foregroundColor(.white)
 
                         Button(action: {
-                            // TODO: StoreKit позже
                             print("Unlock all categories (placeholder)")
                         }) {
                             HStack {
@@ -77,7 +88,6 @@ struct SettingsView: View {
                         dividerLine()
 
                         Button(action: {
-                            // TODO: StoreKit позже
                             print("Restore purchases (placeholder)")
                         }) {
                             HStack {
@@ -93,21 +103,6 @@ struct SettingsView: View {
                     }
                 }
 
-                sectionCard {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("settings.description_title")
-                            .font(.headline)
-                            .foregroundColor(.white)
-
-                        Text("settings.description")
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.leading)
-                            .lineSpacing(2)
-                    }
-                }
-
-                // ✅ Контакты — как было
                 sectionCard {
                     VStack(alignment: .leading, spacing: 12) {
                         Text("settings.contact_title")
