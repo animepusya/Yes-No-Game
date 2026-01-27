@@ -26,6 +26,7 @@ struct AppRootView: View {
     
     @State private var selectedSection: AppSection = .categories
     @StateObject private var mainViewModel = MainViewModel()
+    @StateObject private var purchases = PurchaseManager()
     
     var body: some View {
         NavigationStack {
@@ -83,6 +84,7 @@ struct AppRootView: View {
                 .zIndex(1)
             }
         }
+        .environmentObject(purchases)
     }
     
     @ViewBuilder

@@ -30,5 +30,20 @@ enum Category: String, CaseIterable, Hashable {
 
     var title: String {
             NSLocalizedString("category.\(rawValue.lowercased())", comment: "")
+    }
+    
+    var isFree: Bool {
+        switch self {
+        case .ordinary, .horror: return true
+        default: return false
         }
+    }
+    
+    var productId: String? {
+        guard !isFree else { return nil }
+        return "danetka.category.\(rawValue.lowercased())"
+        // получится: danetka.category.military, danetka.category.anime, ...
+    }
+    
+    static let unlockAllProductId = "danetka.all_categories"
 }

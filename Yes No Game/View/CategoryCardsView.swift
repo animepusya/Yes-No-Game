@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CategoryCardsView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject private var purchases: PurchaseManager
+    @State private var showPaywall = false
 
     let category: Category
     let cards: [Card]
@@ -57,6 +59,15 @@ struct CategoryCardsView: View {
                 .ignoresSafeArea()
         )
         .navigationBarHidden(true)
+        .onAppear {
+            if !purchases.hasAccess(to: category) {
+                showPaywall = true
+            }
+        }
+        .sheet(isPresented: $showPaywall) {
+            PaywallView(category: category)
+                .environmentObject(purchases)
+        }
     }
 }
 

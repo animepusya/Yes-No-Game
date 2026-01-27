@@ -24,7 +24,7 @@ struct SpoilerWarningSheet: View {
                 .fontWeight(.bold)
                 .foregroundStyle(.primary)
             
-            Text(message)
+            Text(messageKey)
                 .font(.body)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
@@ -59,24 +59,12 @@ struct SpoilerWarningSheet: View {
         .presentationDetents([.medium])
     }
     
-    private var message: String {
+    private var messageKey: LocalizedStringKey {
         switch category {
-        case .anime:
-            return """
-spoiler.message.anime
-"""
-        case .films:
-            return """
-spoiler.message.films
-"""
-        case .cartoons:
-            return """
-spoiler.message.cartoons
-"""
-        default:
-            return """
-    spoiler.message.default
-"""
+        case .anime: return "spoiler.message.anime"
+        case .films: return "spoiler.message.films"
+        case .cartoons: return "spoiler.message.cartoons"
+        default: return "spoiler.message.default"
         }
     }
 }
