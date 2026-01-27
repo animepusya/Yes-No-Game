@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "category": "Military",
+    "title": "City in a Web",
+    "description": "The city ended up covered with threads, like a spider web.",
+    "hint": "It had nothing to do with electricity or destruction.",
+    "explanation": "During fighting near Lyman, FPV drones controlled via fiber-optic cables were widely used. The cable unwound behind the drone during flight, remaining on the ground after the drone was destroyed or landed. The mass use of such drones led to the city being literally covered with fiber-optic threads resembling a web.",
+    "imageName": "fiberDroneWeb"
+  },
+  {
+    "id": 2,
+    "category": "Military",
+    "title": "Flew to the Enemy",
+    "description": "Military equipment was sent to a country they had recently fought against.",
+    "hint": "The decision was made during a retreat.",
+    "explanation": "During the 1991 Gulf War, Iraq began evacuating a significant portion of its combat aircraft to Iran. This seemed paradoxical, since only a few years earlier Iraq and Iran had fought a brutal eight-year war. Iraqi leadership feared coalition airstrikes would destroy their air force and decided to temporarily relocate the planes to Iran. After the conflict ended, Iran refused to return the aircraft.",
+    "imageName": "planesFlewToEnemy"
+  },
+  {
+    "id": 3,
+    "category": "Military",
+    "title": "The Saved City",
+    "description": "The city was supposed to be destroyed, but it never happened.",
+    "hint": "The decision was made by one person.",
+    "explanation": "In 1944–1945, German General Dietrich von Choltitz received a direct order to destroy Paris during the retreat. He deliberately delayed carrying out the order, realizing the war was lost, and ultimately never executed it. As a result, Paris survived.",
+    "imageName": "cityNotDestroyed"
+  },
+  {
+    "id": 4,
+    "category": "Military",
+    "title": "The Order",
+    "description": "People carried out an order without understanding its meaning.",
+    "hint": "The information was not received immediately.",
+    "explanation": "In early 2022, reports emerged that some Russian soldiers crossed into Ukraine without knowing that full-scale combat operations had begun. According to soldiers and their relatives, they were told it was a training exercise or a limited mission. The real scale of events became clear only after the order had been carried out, as later described by participants in interviews with journalists.",
+    "imageName": "crossedWithoutKnowing"
+  },
+  {
+    "id": 5,
+    "category": "Military",
+    "title": "Helped the Enemy",
+    "description": "Help in a war led to a threat many years later.",
+    "hint": "A common enemy seemed more important at the time than future consequences.",
+    "explanation": "During the Soviet–Afghan War of 1979–1989, the United States secretly supported Afghan mujahideen, viewing them as opponents of the USSR. This support included funding, training, and weapons supplies. Later, some of these fighters became the foundation of radical organizations, including Al-Qaeda, which carried out terrorist attacks in the United States in 2001.",
+    "imageName": "helpedTheEnemy"
+  },
+  {
+    "id": 6,
+    "category": "Military",
+    "title": "False Alarm",
+    "description": "One person realized the system could not be trusted.",
+    "hint": "A decision had to be made immediately.",
+    "explanation": "In 1983, the Soviet early-warning system detected what appeared to be nuclear missile launches from the United States. Duty officer Stanislav Petrov received a signal that, according to protocol, required an immediate report of an attack. However, he judged the data to be false and did not report it as a confirmed strike. It was later discovered that the system malfunctioned due to sunlight reflecting off clouds.",
+    "imageName": "falseAlarmButton"
+  },
+  {
+    "id": 7,
+    "category": "Military",
+    "title": "A Simple Answer",
+    "description": "One short reply changed how an event was perceived.",
+    "hint": "The conversation lasted only a few seconds.",
+    "explanation": "In February 2022, during fighting for Snake Island, a Russian warship demanded that Ukrainian border guards surrender. In response, one of them uttered a phrase that was recorded and later published. This short remark quickly spread through the media and became a symbol of resistance.",
+    "imageName": "oneSentence"
+  },
+  {
+    "id": 8,
+    "category": "Military",
+    "title": "No One Was Shooting",
+    "description": "Gunfire on the front line suddenly stopped.",
+    "hint": "It did not happen by order.",
+    "explanation": "In December 1914, the so-called Christmas Truce occurred on the Western Front. Soldiers from opposing armies independently ceased fire, left their trenches, communicated, exchanged gifts, and, according to eyewitnesses, even played football. The truce was not sanctioned by command and lasted only briefly before hostilities resumed.",
+    "imageName": "silentFront"
+  },
+  {
+    "id": 9,
+    "category": "Horror",
+    "title": "The Endless Road",
+    "description": "No matter which road she chose, she always ended up in the same place.",
+    "hint": "The place was tragic.",
+    "explanation": "After death, the human soul continued walking as if nothing had happened. But every path it chose inevitably led back to the place of death, as if the city or its streets refused to let it leave this world.",
+    "imageName": "endlessRoad"
+  },
+  {
+    "id": 10,
+    "category": "Horror",
+    "title": "Leap of Faith",
+    "description": "A group of thrill-seekers jumped from a rooftop and none survived.",
+    "hint": "The roof looked completely safe.",
+    "explanation": "They decided to jump using homemade parachutes made from trash bags. The bags could not support the weight, and the jump turned fatal.",
+    "imageName": "deadJump"
+  },
+  {
+    "id": 11,
+    "category": "Horror",
+    "title": "Knocking from the Bathroom",
+    "description": "At night, knocking sounds came from the bathroom.",
+    "hint": "The sound was not coming from the room itself.",
+    "explanation": "The knocking came from inside the wall — a person working in the building’s technical space got stuck there. The blows echoed and were heard in the bathroom.",
+    "imageName": "bathroomKnock"
+  },
+  {
+    "id": 12,
+    "category": "Horror",
+    "title": "Voicemail Recording",
+    "description": "A woman heard her own voice on the answering machine, begging her not to leave the house.",
+    "hint": "The recording was new.",
+    "explanation": "The message was left by herself — in another version of events where she already knew what would happen next.",
+    "imageName": "voicemailWarning"
+  },
+  {
+    "id": 13,
+    "category": "Horror",
+    "title": "Light in the Window",
+    "description": "At night, he saw a light in the neighbors’ apartment, even though they had left.",
+    "hint": "No one was living in the apartment.",
+    "explanation": "The apartment had an automatic lighting system with a timer to simulate the owners’ presence. The timer triggered in the middle of the night and turned the light on. He didn’t know about this and assumed someone was inside the empty apartment.",
+    "imageName": "lightInWindow"
+  },
+  {
+    "id": 14,
+    "category": "Horror",
+    "title": "Dangerous Tasting",
+    "description": "All participants of a food tasting were hospitalized.",
+    "hint": "The dishes looked normal.",
+    "explanation": "An expired ingredient was accidentally used in the kitchen, causing severe food poisoning among all the guests.",
+    "imageName": "foodTasting"
+  },
+  {
+    "id": 15,
+    "category": "Horror",
+    "title": "Crying",
+    "description": "A man heard a child crying under his bed.",
+    "hint": "He lived alone.",
+    "explanation": "The man had recently moved into the apartment. The previous tenants were in a hurry and forgot a baby monitor in a neighboring apartment. The device continued picking up the signal, and through the apartment’s acoustics the sound seemed to come from directly under the bed.",
+    "imageName": "childUnderBed"
+  },
+  {
+    "id": 16,
+    "category": "Horror",
+    "title": "Apocalypse in the Room",
+    "description": "A man clapped his hands, and everyone else in the room died.",
+    "hint": "It was summer.",
+    "explanation": "He was killing mosquitoes.",
+    "imageName": "clapKilling"
+  },
+  {
+    "id": 17,
+    "category": "Horror",
+    "title": "The Drowning Man",
+    "description": "A man was drowning in a pool, and no one came to help him.",
+    "hint": "It looked like a regular training exercise.",
+    "explanation": "The man was taking part in a water rescue training session. During the exercise, he suddenly felt unwell and suffered cramps. The trainee responsible for rescuing him panicked and failed to act in time. The instructor observed from the side, expecting the trainee to handle it, and intervened too late.",
+    "imageName": "manInPool"
+  },
+  {
+    "id": 18,
+    "category": "Horror",
+    "title": "People in the River",
+    "description": "Everyone on the observation deck fell into the river.",
+    "hint": "They couldn’t have prevented it in advance.",
+    "explanation": "The observation deck had just reopened after renovation, and the railing was poorly secured. When people leaned on it, it broke all at once.",
+    "imageName": "viewpointFall"
+  },
+  {
+    "id": 19,
+    "category": "Horror",
+    "title": "Deadly Dance",
+    "description": "A pair of dancers died during a dance competition.",
+    "hint": "The cause was not obvious to the audience.",
+    "explanation": "During a tango performance, another pair, desperate to win, poisoned a rose that the dancers passed to each other during the routine. The poisoned rose killed the first pair, allowing the second to win the competition.",
+    "imageName": "deadDance"
+  },
+  {
+    "id": 20,
+    "category": "Anime",
+    "title": "The Bird Inside",
+    "description": "A bird was inside a person and activated only years later.",
+    "hint": "It was done intentionally and in advance.",
+    "explanation": "This is a scene from the anime \"Naruto\". Using genjutsu, Itachi Uchiha secretly placed a crow containing Shisui’s eye inside Naruto. Years later, when Itachi was resurrected using the Edo Tensei technique, the crow activated and used Kotoamatsukami to free Itachi from control, allowing him to act of his own will.",
+    "imageName": "birdInside"
+  },
+  {
+    "id": 21,
+    "category": "Anime",
+    "title": "A Deadly Phrase",
+    "description": "One carelessly spoken sentence led to the deaths of thousands.",
+    "hint": "The words had the power of an order, even if the speaker didn’t intend it.",
+    "explanation": "This is a scene from the anime \"Code Geass\". Lelouch Lamperouge possessed the power to give absolute commands through eye contact. During a conversation with Euphemia, he jokingly uttered a phrase, unaware that his power would activate automatically. The command took effect, and Euphemia began a mass killing, completely changing the course of the story.",
+    "imageName": "accidentalOrder"
+  },
+  {
+    "id": 22,
+    "category": "Anime",
+    "title": "The Price of a Rule",
+    "description": "A death occurred because of a rule, not because of murder.",
+    "hint": "A god died.",
+    "explanation": "This is a scene from the anime \"Death Note\". The shinigami Rem sacrificed herself by breaking the rules of her world to save a human. According to shinigami laws, using their power to protect a human automatically results in the shinigami’s death. Rem disappeared not because she was killed, but because the rule took effect.",
+    "imageName": "ruleDeath"
+  },
+  {
+    "id": 23,
+    "category": "Anime",
+    "title": "The Last Victory",
+    "description": "A group of players desperately tried to leave a mark in a world they would soon disappear from forever.",
+    "hint": "For them, it was not a game.",
+    "explanation": "This is the \"Sleeping Knights\" arc from the anime \"Sword Art Online\". The guild consisted of terminally ill people spending their final months living in the virtual world of Alfheim Online. With Kirito’s help, they defeated a boss so their names would forever remain in the game’s history. It was their last chance to be remembered.",
+    "imageName": "lastVictory"
+  },
+  {
+    "id": 24,
+    "category": "Anime",
+    "title": "Unification",
+    "description": "People decided to stop being separate individuals in order to survive.",
+    "hint": "Individuality was considered the source of suffering.",
+    "explanation": "This is the core idea of the ending of the anime \"Evangelion\". As part of the Human Instrumentality Project, all human consciousnesses were to be merged into a single whole, eliminating the boundaries between people. It was believed this would free humanity from pain, loneliness, and conflict, at the cost of losing individuality.",
+    "imageName": "humanUnity"
+  },
+  {
+    "id": 25,
+    "category": "Anime",
+    "title": "The Teacher Was Wrong",
+    "description": "A man devoted his life to teaching students, but they were the ones who led the world to war.",
+    "hint": "He believed he was raising saviors.",
+    "explanation": "This is a storyline from the anime \"Naruto\". Jiraiya trained several students, hoping they would bring peace to the world. However, one of his students became the leader of an organization that triggered a global war. Jiraiya realized that his ideals had been distorted, and that even good intentions can lead to catastrophe.",
+    "imageName": "failedTeacher"
+  },
+  {
+    "id": 26,
+    "category": "Anime",
+    "title": "The Stolen Face",
+    "description": "An animal stole someone else’s face and ran through the city with it.",
+    "hint": "The problem was that others could see it.",
+    "explanation": "This is an episode from the anime \"Code Geass\". A cat accidentally grabbed Lelouch’s mask — the symbol of his secret identity — and ran through the city with it. While the cat carried the mask around, Lelouch was forced to chase it, risking exposure. The comedic situation highlighted how fragile his secret truly was.",
+    "imageName": "catWithMask"
+  },
+  {
+    "id": 27,
+    "category": "Anime",
+    "title": "Endless Summer",
+    "description": "The same summer repeated hundreds of times, but almost no one noticed.",
+    "hint": "Someone was dissatisfied with how it went.",
+    "explanation": "This is the \"Endless Eight\" story arc from the anime \"The Melancholy of Haruhi Suzumiya\". Due to Haruhi’s unconscious desire to relive the perfect summer, time looped and the same events repeated over 15,000 times. Most participants in the loop did not remember previous iterations, except for one character.",
+    "imageName": "endlessSummer"
+  },
+  {
+    "id": 28,
+    "category": "Anime",
+    "title": "A Serious Offense",
+    "description": "A person was severely punished over food.",
+    "hint": "It happened during an official formation.",
+    "explanation": "This is a scene from the anime \"Attack on Titan\". During a recruit lineup, Sasha Braus was punished for eating a potato at the most inappropriate moment. Against the backdrop of strict military discipline and tense circumstances, her action appeared absurd.",
+    "imageName": "potatoIncident"
+  },
+  {
+    "id": 29,
+    "category": "Ordinary",
+    "title": "The Meeting",
+    "description": "He came to a meeting, but everyone had already left.",
+    "hint": "He didn’t get the time wrong.",
+    "explanation": "Colleagues decided to change the meeting time in the conference room without notifying everyone in the group chat, and he forgot to check the updated schedule in his work calendar.",
+    "imageName": "missedMeeting"
+  },
+  {
+    "id": 30,
+    "category": "Ordinary",
+    "title": "The Debt",
+    "description": "She repaid the debt, but still owed money.",
+    "hint": "The principal was fully paid.",
+    "explanation": "She paid an amount equal to the outstanding balance at that moment but failed to consider that interest continued to accrue until the end of the billing period. Even a single day between the payment date and the closing date resulted in a small but formal remaining debt.",
+    "imageName": "bankDebt"
+  },
+  {
+    "id": 31,
+    "category": "Ordinary",
+    "title": "The Raise",
+    "description": "An employee was fired, and after that his income increased.",
+    "hint": "He was unlucky and lucky at the same time.",
+    "explanation": "After being dismissed, he received severance pay, compensation for unused vacation, and a bonus tied to the termination date. In total, he earned more money that month than he usually did while still working.",
+    "imageName": "afterFiringIncome"
+  }
+]
+

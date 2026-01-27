@@ -16,7 +16,7 @@ struct CardLoader {
         loadCallCount += 1
         print("🧾 CardLoader.load() вызван \(loadCallCount) раз")
 
-        guard let data = RemoteContentService.shared.loadCardsDataFallbackToBundle() else {
+        guard let data = CardsRepository.shared.loadCardsDataFallbackToBundle() else {
             print("❌ Не удалось получить данные cards.json ни из кэша, ни из Bundle")
             return []
         }

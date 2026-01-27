@@ -18,7 +18,7 @@ struct AppMenuView: View {
                 onSelectSection(.categories)
             } label: {
                 Label(
-                    "Категории",
+                    "menu.categories",
                     systemImage: selectedSection == .categories ? "checkmark.circle.fill" : "list.bullet"
                 )
             }
@@ -27,24 +27,24 @@ struct AppMenuView: View {
                 onSelectSection(.rules)
             } label: {
                 Label(
-                    "Правила игры",
+                    "menu.rules",
                     systemImage: selectedSection == .rules ? "checkmark.circle.fill" : "book"
                 )
             }
 
             Button {
-                onSelectSection(.about)
+                onSelectSection(.settings)
             } label: {
                 Label(
-                    "О приложении",
-                    systemImage: selectedSection == .about ? "checkmark.circle.fill" : "info.circle"
+                    "menu.settings",
+                    systemImage: selectedSection == .settings ? "checkmark.circle.fill" : "info.circle"
                 )
             }
 
             Divider()
 
             Button(action: onRandomCard) {
-                Label("Случайная карточка", systemImage: "dice")
+                Label("menu.random_card", systemImage: "dice")
             }
 
         } label: {
@@ -54,7 +54,7 @@ struct AppMenuView: View {
                     selectedSection == .categories ? Color.graphite : Color.accentColor
                 )
         }
-        .accessibilityLabel("Меню")
+        .accessibilityLabel("menu.accessibility")
     }
 }
 

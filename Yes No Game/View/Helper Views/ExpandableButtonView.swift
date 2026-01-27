@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExpandableButtonView: View {
-    let title: String
+    let title: LocalizedStringKey
     let explanation: String
     let backgroundColor: Color
     @Binding var isExpanded: Bool
@@ -60,7 +60,7 @@ struct ExpandableButtonPreview: View {
 
     var body: some View {
         ExpandableButtonView(
-            title: "Meme",
+            title: "card.full_story",
             explanation: "Text tipa explanation i ewe bolwe texta dl9 primera choto ya ne ponyal pochemu tut vse tak krasivo a pri ispolzovanii kakoy to trash proishodit i ne tak kruta srazu vyglyadit a net vse taki tut toje trash mne nujen .alignment and .padding",
             backgroundColor: .blue,
             isExpanded: $isExpanded

@@ -33,7 +33,7 @@ class MainViewModel: ObservableObject {
     init() {
         loadAllCards()
         loadCategoriesWithCards()
-        RemoteContentService.shared.prefetchImages(from: allCards)
+        CardsRepository.shared.prefetchImages(from: allCards)
     }
     
     private func loadAllCards() {
@@ -143,11 +143,11 @@ class MainViewModel: ObservableObject {
     
     func refreshRemoteContent() async {
         do {
-            let didUpdate = try await RemoteContentService.shared.refreshIfNeeded()
+            let didUpdate = try await CardsRepository.shared.refreshIfNeeded()
             if didUpdate {
                 loadAllCards()
                 loadCategoriesWithCards()
-                RemoteContentService.shared.prefetchImages(from: allCards)
+                CardsRepository.shared.prefetchImages(from: allCards)
                 print("🌐 Контент обновлён и перезагружен")
             } else {
                 print("🌐 Обновлений нет")

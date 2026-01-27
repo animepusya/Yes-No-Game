@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ButtonView: View {
-    let title: String
+    let title: LocalizedStringKey
     let action: () -> Void
     var backgroundColor: Color = .sand
     var isDisabled: Bool = false

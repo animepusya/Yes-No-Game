@@ -19,7 +19,7 @@ struct SpoilerWarningSheet: View {
                 .frame(width: 40, height: 5)
                 .padding(.top, 8)
             
-            Text("Возможны спойлеры")
+            Text("spoiler.title")
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundStyle(.primary)
@@ -32,7 +32,7 @@ struct SpoilerWarningSheet: View {
             
             VStack(spacing: 10) {
                 Button(action: onContinue) {
-                    Text("Понятно, продолжить")
+                    Text("spoiler.continue")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
@@ -42,7 +42,7 @@ struct SpoilerWarningSheet: View {
                 }
                 
                 Button(action: onDontShowAgain) {
-                    Text("Не показывать снова")
+                    Text("spoiler.dont_show_again")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
@@ -57,32 +57,25 @@ struct SpoilerWarningSheet: View {
         .padding(.horizontal, 20)
         .padding(.bottom, 18)
         .presentationDetents([.medium])
-        .presentationDragIndicator(.visible)
     }
     
     private var message: String {
         switch category {
         case .anime:
             return """
-В этой категории есть истории,
-основанные на сюжетах аниме.
-Они могут содержать спойлеры.
+spoiler.message.anime
 """
         case .films:
             return """
-В этой категории есть истории,
-основанные на сюжетах фильмов.
-Они могут содержать спойлеры.
+spoiler.message.films
 """
         case .cartoons:
             return """
-В этой категории есть истории,
-основанные на сюжетах мультфильмов
-и мультсериалов. Возможны спойлеры.
+spoiler.message.cartoons
 """
         default:
             return """
-    В этой категории возможны спойлеры.
+    spoiler.message.default
 """
         }
     }

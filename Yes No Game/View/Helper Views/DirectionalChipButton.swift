@@ -13,7 +13,7 @@ struct DirectionalChipButton: View {
         case forward
     }
 
-    let title: String
+    let title: LocalizedStringKey
     let direction: Direction
     let action: () -> Void
 

@@ -22,7 +22,7 @@ struct CategoryCardsView: View {
         VStack(alignment: .leading, spacing: 16) {
             HStack(spacing: 10) {
                 DirectionalChipButton(
-                    title: "Назад",
+                    title: "nav.back",
                     direction: .back,
                     action: { dismiss() },
                     style: .neutral

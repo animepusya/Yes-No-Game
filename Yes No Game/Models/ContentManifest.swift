@@ -9,5 +9,5 @@ import Foundation
 
 struct ContentManifest: Decodable {
     let contentVersion: Int
-    let cardsPath: String
+    let cardsPaths: [String: String]
 }

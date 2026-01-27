@@ -29,15 +29,6 @@ enum Category: String, CaseIterable, Hashable {
     case travel = "Travel"
 
     var title: String {
-        switch self {
-        case .military: return "Военные"
-        case .horror: return "Ужасы"
-        case .films: return "Фильмы"
-        case .cartoons: return "Мультики"
-        case .anime: return "Аниме"
-        case .ordinary: return "Повседневные"
-        case .science: return "Наука"
-        case .travel: return "Путешествия"
+            NSLocalizedString("category.\(rawValue.lowercased())", comment: "")
         }
-    }
 }

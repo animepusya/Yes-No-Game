@@ -1,0 +1,798 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "card.full_story" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full story"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полная история"
+          }
+        }
+      }
+    },
+    "card.hide_hint" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide hint"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скрыть подсказку"
+          }
+        }
+      }
+    },
+    "card.hint" : {
+      "comment" : "Card UI",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hint"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подсказка"
+          }
+        }
+      }
+    },
+    "category.anime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anime"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аниме"
+          }
+        }
+      }
+    },
+    "category.cartoons" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cartoons"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мультики"
+          }
+        }
+      }
+    },
+    "category.films" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Films"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Фильмы"
+          }
+        }
+      }
+    },
+    "category.horror" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Horror"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ужасы"
+          }
+        }
+      }
+    },
+    "category.military" : {
+      "comment" : "Categories",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Military"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Военные"
+          }
+        }
+      }
+    },
+    "category.ordinary" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Everyday"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повседневные"
+          }
+        }
+      }
+    },
+    "category.science" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Science"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наука"
+          }
+        }
+      }
+    },
+    "category.travel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Travel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Путешествия"
+          }
+        }
+      }
+    },
+    "menu.accessibility" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menu"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Меню"
+          }
+        }
+      }
+    },
+    "menu.categories" : {
+      "comment" : "Menu",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Categories"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Категории"
+          }
+        }
+      }
+    },
+    "menu.random_card" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Random card"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Случайная карточка"
+          }
+        }
+      }
+    },
+    "menu.rules" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rules"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Правила игры"
+          }
+        }
+      }
+    },
+    "menu.settings" : {
+      "comment" : "The title of the settings menu item.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        }
+      }
+    },
+    "nav.back" : {
+      "comment" : "Navigation",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Назад"
+          }
+        }
+      }
+    },
+    "nav.next" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Следующая"
+          }
+        }
+      }
+    },
+    "rules.example.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The host gives a situation:\n“An employee was fired, and after that their income increased.”\n\nPlayers start asking questions:\n\n— Did they cheat their employer?\n— No\n\n— Did they win the lottery?\n— No\n\n— Did they commit a crime?\n— Doesn’t matter\n\nAnd so on, until the story becomes clear."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ведущий загадал ситуацию:\n«Сотрудника уволили, и после этого его доход увеличился.»\n\nИгроки начинают задавать вопросы:\n\n— Он обманывал работодателя?\n— Нет\n\n— Он выиграл в лотерею?\n— Нет\n\n— Он совершил преступление?\n— Не имеет значения\n\nИ так далее, пока история не станет понятной."
+          }
+        }
+      }
+    },
+    "rules.example.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Example"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пример"
+          }
+        }
+      }
+    },
+    "rules.goal.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The players’ goal is to reconstruct what really happened.\n\nThey take turns asking the host questions. The host may answer only:\n• “Yes”\n• “No”\n• “Doesn’t matter / I don’t know / Please clarify”\n\nIf it gets difficult, players can use the hint. The card image is available to everyone."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Задача игроков — восстановить реальную ситуацию и понять, что произошло на самом деле.\n\nДля этого они по очереди задают ведущему вопросы. Ведущий может отвечать только:\n• «Да»\n• «Нет»\n• «Не имеет значения / Не знаю / Уточните вопрос»\n\nЕсли становится сложно, игроки могут воспользоваться подсказкой. Изображение карточки доступно всем участникам."
+          }
+        }
+      }
+    },
+    "rules.goal.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Goal"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цель игры"
+          }
+        }
+      }
+    },
+    "rules.how_to_play.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You can play Danetka with any group of two or more people. One player becomes the host, the others try to guess the story."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для игры в данетки подойдёт любая компания из двух и более человек. Один из игроков становится ведущим, остальные — отгадывают."
+          }
+        }
+      }
+    },
+    "rules.how_to_play.title" : {
+      "comment" : "Rules",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "How to play"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Как играть"
+          }
+        }
+      }
+    },
+    "rules.start.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The host picks a card and reads its title and description out loud. The host checks the hint and the full story in advance, but does not show them to the other players."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ведущий выбирает карточку и зачитывает её название и описание. Подсказку и полную историю он смотрит заранее, но другим игрокам их не показывает."
+          }
+        }
+      }
+    },
+    "rules.start.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Getting started"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Начало игры"
+          }
+        }
+      }
+    },
+    "rules.where.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You don’t need any special setup or props. It’s easy to play anywhere: on a trip, on a walk, at a party, or at home — with two people or a big group."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для игры в данетки не нужны специальные условия или реквизит. В них удобно играть где угодно: в дороге, на прогулке, на вечеринке или дома — вдвоём или большой компанией."
+          }
+        }
+      }
+    },
+    "rules.where.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Where to play"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Где можно играть"
+          }
+        }
+      }
+    },
+    "rules.why.body" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danetka is a great way to train your thinking. It improves logic, attention to detail, and the ability to find hidden causes.\n\nThis kind of brainstorming is also used in companies to develop employees."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Данетки — это отличная тренировка мышления. Они развивают логику, внимание к деталям и умение находить скрытые причины событий.\n\nТакой формат мозгового штурма часто используют и в компаниях для развития сотрудников."
+          }
+        }
+      }
+    },
+    "rules.why.title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why play"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зачем играть"
+          }
+        }
+      }
+    },
+    "settings.app_title" : {
+      "comment" : "The title of the \"App\" section in the settings menu.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приложение"
+          }
+        }
+      }
+    },
+    "settings.contact_title" : {
+      "comment" : "A label displayed above the contact information in the settings view.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contact developer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Связаться с разработчиком"
+          }
+        }
+      }
+    },
+    "settings.description" : {
+      "comment" : "A description of the app, displayed below the settings menu.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danetka is a set of riddle cards where you guess the story behind a short description. Open the hint, then the full story — and check your guess."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danetka — это набор карточек-загадок (данеток), где нужно угадать историю по короткому описанию. Открывай подсказку, а затем полную историю — и проверяй свою догадку."
+          }
+        }
+      }
+    },
+    "settings.description_title" : {
+      "comment" : "A label displayed above the description text in the settings view.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About Danetka"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "О Danetka"
+          }
+        }
+      }
+    },
+    "settings.language" : {
+      "comment" : "A label for the language setting in the settings menu.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Language"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Язык"
+          }
+        }
+      }
+    },
+    "settings.purchases_title" : {
+      "comment" : "A title for the section related to in-app purchases in the settings.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purchases"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Покупки"
+          }
+        }
+      }
+    },
+    "settings.restore_purchases" : {
+      "comment" : "A button label that restores purchases in the settings menu.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore purchases"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Восстановить покупки"
+          }
+        }
+      }
+    },
+    "settings.soon" : {
+      "comment" : "Возможность будет добавлена в ближайшем времени.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soon"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скоро"
+          }
+        }
+      }
+    },
+    "settings.unlock_all" : {
+      "comment" : "A button label that unlocks all categories.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock all categories"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть все категории"
+          }
+        }
+      }
+    },
+    "settings.version" : {
+      "comment" : "A label for the app version.",
+      "isCommentAutoGenerated" : true,
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версия"
+          }
+        }
+      }
+    },
+    "spoiler.continue" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Got it, continue"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Понятно, продолжить"
+          }
+        }
+      }
+    },
+    "spoiler.dont_show_again" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don’t show again"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не показывать снова"
+          }
+        }
+      }
+    },
+    "spoiler.message.anime" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This category contains stories\nbased on anime plots.\nThey may include spoilers."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В этой категории есть истории,\nоснованные на сюжетах аниме.\nОни могут содержать спойлеры."
+          }
+        }
+      }
+    },
+    "spoiler.message.cartoons" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This category contains stories\nbased on cartoons and animated series.\nSpoilers are possible."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В этой категории есть истории,\nоснованные на сюжетах мультфильмов\nи мультсериалов. Возможны спойлеры."
+          }
+        }
+      }
+    },
+    "spoiler.message.default" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This category may contain spoilers."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В этой категории возможны спойлеры."
+          }
+        }
+      }
+    },
+    "spoiler.message.films" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This category contains stories\nbased on movie plots.\nThey may include spoilers."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В этой категории есть истории,\nоснованные на сюжетах фильмов.\nОни могут содержать спойлеры."
+          }
+        }
+      }
+    },
+    "spoiler.title" : {
+      "comment" : "Spoiler",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spoilers possible"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Возможны спойлеры"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.1"
+}

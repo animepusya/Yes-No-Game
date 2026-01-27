@@ -20,7 +20,6 @@ final class LaunchOverlayViewModel: ObservableObject {
         Task {
             try? await Task.sleep(nanoseconds: hold)
 
-            // Анимация как в старом коде: fade + небольшой zoom
             withAnimation(.easeInOut(duration: duration)) {
                 overlayOpacity = 0.0
                 logoScale = 1.04

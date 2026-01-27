@@ -13,12 +13,12 @@ struct RulesView: View {
             VStack(alignment: .leading, spacing: 16) {
 
                 sectionCard {
-                    Text("Как играть")
+                    Text("rules.how_to_play.title")
                         .font(.headline)
                         .foregroundColor(.white)
 
                     Text("""
-                    Для игры в данетки подойдёт любая компания из двух и более человек. Один из игроков становится ведущим, остальные — отгадывают.
+                    rules.how_to_play.body
                     """)
                     .font(.body)
                     .foregroundColor(.white)
@@ -26,12 +26,12 @@ struct RulesView: View {
                 }
 
                 sectionCard {
-                    Text("Начало игры")
+                    Text("rules.start.title")
                         .font(.headline)
                         .foregroundColor(.white)
 
                     Text("""
-                    Ведущий выбирает карточку и зачитывает её название и описание. Подсказку и полную историю он смотрит заранее, но другим игрокам их не показывает.
+                    rules.start.body
                     """)
                     .font(.body)
                     .foregroundColor(.white)
@@ -39,19 +39,12 @@ struct RulesView: View {
                 }
 
                 sectionCard {
-                    Text("Цель игры")
+                    Text("rules.goal.title")
                         .font(.headline)
                         .foregroundColor(.white)
 
                     Text("""
-                    Задача игроков — восстановить реальную ситуацию и понять, что произошло на самом деле.
-
-                    Для этого они по очереди задают ведущему вопросы. Ведущий может отвечать только:
-                    • «Да»
-                    • «Нет»
-                    • «Не имеет значения / Не знаю / Уточните вопрос»
-
-                    Если становится сложно, игроки могут воспользоваться подсказкой. Изображение карточки доступно всем участникам.
+                    rules.goal.body
                     """)
                     .font(.body)
                     .foregroundColor(.white)
@@ -59,26 +52,12 @@ struct RulesView: View {
                 }
 
                 sectionCard {
-                    Text("Пример")
+                    Text("rules.example.title")
                         .font(.headline)
                         .foregroundColor(.white)
 
                     Text("""
-                    Ведущий загадал ситуацию:
-                    «Сотрудника уволили, и после этого его доход увеличился.»
-
-                    Игроки начинают задавать вопросы:
-
-                    — Он обманывал работодателя?
-                    — Нет
-
-                    — Он выиграл в лотерею?
-                    — Нет
-
-                    — Он совершил преступление?
-                    — Не имеет значения
-
-                    И так далее, пока история не станет понятной.
+                    rules.example.body
                     """)
                     .font(.body)
                     .foregroundColor(.white)
@@ -86,14 +65,12 @@ struct RulesView: View {
                 }
 
                 sectionCard {
-                    Text("Зачем играть")
+                    Text("rules.why.title")
                         .font(.headline)
                         .foregroundColor(.white)
 
                     Text("""
-                    Данетки — это отличная тренировка мышления. Они развивают логику, внимание к деталям и умение находить скрытые причины событий.
-
-                    Такой формат мозгового штурма часто используют и в компаниях для развития сотрудников.
+                    rules.why.body
                     """)
                     .font(.body)
                     .foregroundColor(.white)
@@ -101,12 +78,12 @@ struct RulesView: View {
                 }
 
                 sectionCard {
-                    Text("Где можно играть")
+                    Text("rules.where.title")
                         .font(.headline)
                         .foregroundColor(.white)
 
                     Text("""
-                    Для игры в данетки не нужны специальные условия или реквизит. В них удобно играть где угодно: в дороге, на прогулке, на вечеринке или дома — вдвоём или большой компанией.
+                    rules.where.body
                     """)
                     .font(.body)
                     .foregroundColor(.white)

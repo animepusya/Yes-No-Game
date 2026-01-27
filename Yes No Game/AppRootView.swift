@@ -9,14 +9,14 @@ import SwiftUI
 
 enum AppSection: Hashable {
     case categories
-    case about
+    case settings
     case rules
 
-    var title: String {
+    var titleKey: LocalizedStringKey {
         switch self {
-        case .categories: return "Категории"
-        case .about: return "О приложении"
-        case .rules: return "Правила игры"
+        case .categories: return "menu.categories"
+        case .settings: return "menu.settings"
+        case .rules: return "menu.rules"
         }
     }
 }
@@ -33,7 +33,7 @@ struct AppRootView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        Text(selectedSection.title)
+                        Text(selectedSection.titleKey)
                             .font(.system(size: 22, weight: .semibold))
                             .foregroundColor(.graphite)
                     }
@@ -90,8 +90,8 @@ struct AppRootView: View {
         switch selectedSection {
         case .categories:
             MainView(viewModel: mainViewModel)
-        case .about:
-            AboutView()
+        case .settings:
+            SettingsView()
         case .rules:
             RulesView()
         }

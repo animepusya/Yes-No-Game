@@ -5,7 +5,7 @@
 //  Created by Руслан Меланин on 18.01.2026.
 //
 
-import Foundation
+/* import Foundation
 
 final class RemoteContentService {
     static let shared = RemoteContentService()
@@ -65,3 +65,4 @@ final class RemoteContentService {
         }
     }
 }
+ */

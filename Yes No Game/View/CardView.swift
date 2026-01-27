@@ -22,7 +22,7 @@ struct CardView: View {
                     HStack(spacing: 10) {
                         
                         DirectionalChipButton(
-                            title: "Назад",
+                            title: "nav.back",
                             direction: .back,
                             action: { dismiss() },
                             style: .neutral
@@ -32,7 +32,7 @@ struct CardView: View {
                         
                         if viewModel.isRandomMode {
                             DirectionalChipButton(
-                                title: "Следующая",
+                                title: "nav.next",
                                 direction: .forward,
                                 action: {
                                     guard !isButtonDisabled else { return }
@@ -96,7 +96,7 @@ struct CardView: View {
                     Spacer()
                     
                     ButtonView(
-                        title: viewModel.showHint ? "Скрыть подсказку" : "Подсказка",
+                        title: viewModel.showHint ? "card.hide_hint" : "card.hint",
                         action: {
                             withAnimation(.easeInOut(duration: 0.4)) {
                                 viewModel.showHint.toggle()
@@ -107,7 +107,7 @@ struct CardView: View {
                     )
                     
                     ExpandableButtonView(
-                        title: "Полная история",
+                        title: "card.full_story",
                         explanation: card.explanation,
                         backgroundColor: .sand,
                         isExpanded: $isAnswerExpanded
