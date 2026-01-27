@@ -7,20 +7,6 @@
 
 import SwiftUI
 
-enum AppSection: Hashable {
-    case categories
-    case settings
-    case rules
-
-    var titleKey: LocalizedStringKey {
-        switch self {
-        case .categories: return "menu.categories"
-        case .settings: return "menu.settings"
-        case .rules: return "menu.rules"
-        }
-    }
-}
-
 struct AppRootView: View {
     @State private var showLaunchScreen = true
     
