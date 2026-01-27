@@ -93,7 +93,7 @@ This architecture makes the project easy to extend and maintain.
 ## 🔮 Future Improvements
 
 ### ✅ Done
-- English localization
+- English localization (RU / EN)
 
 ### 🔮 Planned
 - More riddle packs
