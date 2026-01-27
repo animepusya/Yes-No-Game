@@ -1,4 +1,14 @@
-# Xcode user state (never commit)
+# macOS
+.DS_Store
+
+# Xcode user state
 xcuserdata/
 *.xcuserstate
+
+# Xcode build
+DerivedData/
+*.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+
+# Swift Package Manager
+.build/
 
