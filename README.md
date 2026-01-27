@@ -92,12 +92,10 @@ This architecture makes the project easy to extend and maintain.
 
 ## 🔮 Future Improvements
 
-## ✅ Done
-
+### ✅ Done
 - English localization
 
-## 🔮 Planned
-
+### 🔮 Planned
 - More riddle packs
 - Monetization
 
