@@ -35,7 +35,9 @@ struct AppRootView: View {
                                 if selected != .categories { path.removeAll() }
                             },
                             onRandomCard: {
-                                if let route = mainViewModel.makeRandomCardRoute() {
+                                if let route = mainViewModel.makeRandomCardRoute(hasAccess: { category in
+                                    purchases.hasAccess(to: category)
+                                }) {
                                     if mainViewModel.spoilerPrompt == nil {
                                         path.append(route)
                                     }

@@ -76,17 +76,19 @@ class MainViewModel: ObservableObject {
         return .card(card, allCards: all, isRandomMode: isRandomMode)
     }
 
-    func makeRandomCardRoute() -> Route? {
-        let filteredCards = allCards.filter { card in
-            categoriesWithCards.contains(where: { $0.rawValue == card.category })
-        }
-        guard let random = filteredCards.randomElement() else { return nil }
+    func makeRandomCardRoute(hasAccess: (Category) -> Bool) -> Route? {
 
-        guard let category = Category.allCases.first(where: { $0.rawValue == random.category }) else {
-            return .card(random, allCards: allCards, isRandomMode: true)
+        let allowedCategories: [Category] = categoriesWithCards.filter { category in
+            hasAccess(category) && !shouldShowSpoilerWarning(for: category)
         }
-
-        return makeCardRoute(random, in: category, isRandomMode: true)
+        
+        let pool: [Card] = allCards.filter { card in
+            guard let cat = Category(rawValue: card.category) else { return false }
+            return allowedCategories.contains(cat)
+        }
+        
+        guard let random = pool.randomElement() else { return nil }
+        return .card(random, allCards: pool, isRandomMode: true)
     }
 
     func consumePendingRoute(dontShowAgain: Bool) -> Route? {
