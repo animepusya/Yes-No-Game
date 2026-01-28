@@ -59,43 +59,43 @@ Each riddle is presented as a card with smooth transitions and subtle animations
 
 ## 🛠 Tech Stack
 
-- **Swift**
-- **SwiftUI**
 - **MVVM**
-- **URLSession**
+- **SwiftUI**
 - **JSON API**
+- **URLSession**
+- **Localization**
 - **Local caching**
+- **In-App Purchases**
 - **Custom animations**
-
 
 ---
 
 ## 🧩 Architecture
 
-The app is built using the **MVVM** pattern:
+The app uses **MVVM** with a clear separation between UI and data layers:
 
-- **View** — SwiftUI screens and animations
-- **ViewModel** — state management and game logic
-- **Model** — riddle data and categories
+- **Presentation (MVVM)** — SwiftUI screens, navigation, animations, ViewModels (`Features/*`, `UIComponents`, `Navigation`)
+- **Domain (Models)** — cards, categories, remote manifest (`Shared/Models`, localized resources)
+- **Data layer** — networking, caching, repositories, persistence (`Services`, `Repository`, `Shared/Persistence`)
+- **Purchases** — StoreKit flow, transaction handling, access control (`Purchases`)
 
-This architecture makes the project easy to extend and maintain.
-
----
-
-## 🚀 What I Learned
-
-- Building a full SwiftUI app from scratch
-- Structuring a pet project for scalability
-- Preparing an app for future localization
+This structure keeps the project scalable:
+new packs, cards, languages, or monetization rules can be added mostly in the data/config layer without rewriting UI.
 
 ---
 
-## 🔮 Future Improvements
+## 🚀 What This Project Demonstrates
 
-### ✅ Done
-- English localization (RU / EN)
-- Monetization
+- End-to-end SwiftUI app development
+- Working with remote APIs and local caching
+- App state management and navigation
+- Localization-ready UI
+- Real-world monetization integration
+- Structuring a pet project close to production quality
 
-### 🔮 Planned
-- More riddle packs
+---
 
+## 🔮 Future Plans
+
+- New riddle packs and categories
+- App Store release and publishing
